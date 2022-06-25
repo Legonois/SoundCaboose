@@ -1,0 +1,114 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "SoundCabooseWPFVersion/1.0.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1",
+          "Syncfusion.SfSkinManager.WPF": "20.1.0.61",
+          "Syncfusion.Shared.WPF": "20.1.0.61",
+          "Syncfusion.Tools.WPF": "20.1.0.61"
+        },
+        "runtime": {
+          "SoundCabooseWPFVersion.dll": {}
+        }
+      },
+      "Newtonsoft.Json/13.0.1": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "13.0.0.0",
+            "fileVersion": "13.0.1.25517"
+          }
+        }
+      },
+      "Syncfusion.Licensing/20.1.0.61": {
+        "runtime": {
+          "lib/net6.0/Syncfusion.Licensing.dll": {
+            "assemblyVersion": "20.1.0.61",
+            "fileVersion": "20.1.0.61"
+          }
+        }
+      },
+      "Syncfusion.SfSkinManager.WPF/20.1.0.61": {
+        "dependencies": {
+          "Syncfusion.Licensing": "20.1.0.61"
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Syncfusion.SfSkinManager.WPF.dll": {
+            "assemblyVersion": "20.1500.0.61",
+            "fileVersion": "20.1500.0.61"
+          }
+        }
+      },
+      "Syncfusion.Shared.WPF/20.1.0.61": {
+        "dependencies": {
+          "Syncfusion.Licensing": "20.1.0.61"
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Syncfusion.Shared.WPF.dll": {
+            "assemblyVersion": "20.1500.0.61",
+            "fileVersion": "20.1500.0.61"
+          }
+        }
+      },
+      "Syncfusion.Tools.WPF/20.1.0.61": {
+        "dependencies": {
+          "Syncfusion.Licensing": "20.1.0.61",
+          "Syncfusion.Shared.WPF": "20.1.0.61"
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Syncfusion.Tools.WPF.dll": {
+            "assemblyVersion": "20.1500.0.61",
+            "fileVersion": "20.1500.0.61"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SoundCabooseWPFVersion/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Newtonsoft.Json/13.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
+      "path": "newtonsoft.json/13.0.1",
+      "hashPath": "newtonsoft.json.13.0.1.nupkg.sha512"
+    },
+    "Syncfusion.Licensing/20.1.0.61": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zKaxU7BLBwetkXI5auOs9t1ANjM8x+QGssaw/mopmefSBL63Vk5KklQ0ZsD8MzSRBv4vc+o1DxSbKsR/Vb5d4Q==",
+      "path": "syncfusion.licensing/20.1.0.61",
+      "hashPath": "syncfusion.licensing.20.1.0.61.nupkg.sha512"
+    },
+    "Syncfusion.SfSkinManager.WPF/20.1.0.61": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jjGUcan4pCjP6Kl4dn6Cd+QIBxYmfAJIPSdWgJeg6zxz9A0lFIivine2pF9WO6wvr4dAR+o+1KyMxhpjR5FNtw==",
+      "path": "syncfusion.sfskinmanager.wpf/20.1.0.61",
+      "hashPath": "syncfusion.sfskinmanager.wpf.20.1.0.61.nupkg.sha512"
+    },
+    "Syncfusion.Shared.WPF/20.1.0.61": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0iIvdyUlliPxLAKooUfbhnomdxsFUl3c8/BeLyJjOggOsBCu2d/LsGAyTdd2b9J2DWiOk67iBRUlKMHxeBLWHQ==",
+      "path": "syncfusion.shared.wpf/20.1.0.61",
+      "hashPath": "syncfusion.shared.wpf.20.1.0.61.nupkg.sha512"
+    },
+    "Syncfusion.Tools.WPF/20.1.0.61": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aeh9jgxBQCk445pD1XvWWaCfgEBKKTvCV5yHUllytfi88d8Q1K9BAu5VVxFRlPzt59+AwfvYYZOTMyArqNNObA==",
+      "path": "syncfusion.tools.wpf/20.1.0.61",
+      "hashPath": "syncfusion.tools.wpf.20.1.0.61.nupkg.sha512"
+    }
+  }
+}
