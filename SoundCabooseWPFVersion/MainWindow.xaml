@@ -8,19 +8,55 @@
         Title="MainWindow" Height="450" Width="800"
         MinHeight="400" MaxHeight="6000"
         MinWidth="750" MaxWidth="11250"
-        WindowStyle="None">
-    <Grid>
+        WindowStyle="None"
+        Background="Transparent" 
+        AllowsTransparency="True"
+        ResizeMode="CanResize">
 
-        <DockPanel>
-            <StackPanel Orientation="Horizontal">
-                <Menu DockPanel.Dock="Top">
-                    <MenuItem FontFamily="Segoe UI Symbol" Header="&#xE110;"/>
-                    <MenuItem Header="_File">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+
+
+
+        <!--
+        <DockPanel Grid.Row="0">
+            <TextBlock>Left</TextBlock>
+
+            <Button HorizontalAlignment="Right">Minimize</Button>
+            <Button HorizontalAlignment="Right" HorizontalContentAlignment="Center">Maximize</Button>
+            <Button HorizontalAlignment="Right">Close</Button>
+        </DockPanel> 
+        -->
+
+        <Grid Grid.Row="0" Background="#1A1A1D">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="46"/>
+                <ColumnDefinition Width="46"/>
+                <ColumnDefinition Width="46"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Foreground="White" VerticalAlignment="Center">Logo</TextBlock>
+
+            <Grid Grid.Column="1" 
+                  PreviewMouseLeftButtonDown="Grid_PreviewMouseLeftButtonDown" 
+                  Background="Transparent">
+
+                <Menu VerticalAlignment="Center" Background="Transparent" Foreground="White">
+
+                    <MenuItem Header="_File" Margin="5,0,5,0">
                         <MenuItem Header="_Open"/>
                         <MenuItem Header="_Close"/>
                         <MenuItem Header="_Save"/>
                     </MenuItem>
-                    <MenuItem Header="Edit">
+                    <MenuItem Header="Edit" Margin="5,0,5,0" >
 
                     </MenuItem>
                     <MenuItem Header="View">
@@ -28,49 +64,97 @@
                     </MenuItem>
                 </Menu>
 
-                <Menu DockPanel.Dock="Top" HorizontalAlignment="Right">
-                    <MenuItem FontFamily="Segoe MDL2 Assets" Header="&#xEF2C;" Height="18" />
+            </Grid>
+
+            <Button x:Name="MinimizeBtn"
+                    Grid.Column="2" 
+                    Style="{DynamicResource WindowsButtons}"
+                    Content="&#xE921;"/>
+
+            <Button x:Name="MaximizeBtn"
+                    Grid.Column="3" 
+                    Style="{DynamicResource WindowsButtons}"
+                    Content="&#xE922;"/>
+
+            <Button x:Name="CloseBtn"
+                    Grid.Column="4" 
+                    Style="{DynamicResource WindowsButtons}"
+                    Content="&#xE8BB;"/>
+        </Grid>
+
+        <!--
+        <DockPanel Grid.Row="0" >
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Height="32">
+                <Button FontFamily="Segoe UI Symbol" Content="&#xE110;" Margin="5,0,5,0"/>
+                <Menu DockPanel.Dock="Top" VerticalAlignment="Center">
+                    
+                    <MenuItem Header="_File" Margin="5,0,5,0">
+                        <MenuItem Header="_Open"/>
+                        <MenuItem Header="_Close"/>
+                        <MenuItem Header="_Save"/>
+                    </MenuItem>
+                    <MenuItem Header="Edit" Margin="5,0,5,0" >
+
+                    </MenuItem>
+                    <MenuItem Header="View">
+
+                    </MenuItem>
                 </Menu>
 
-                <StackPanel></StackPanel>
-                <Button FontFamily="Segoe MDL2 Assets" Content="&#xEF2C;" Height="22" VerticalAlignment="Top"/>
+
+
+                <Menu HorizontalAlignment="Right">
+                    <MenuItem FontFamily="Segoe MDL2 Assets" Header="&#xEF2C;" Height="18" />
+                </Menu>
             </StackPanel>
 
+            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="32" Orientation="Horizontal" FlowDirection="RightToLeft">
+                <Button FontFamily="Segoe MDL2 Assets" Content="&#xEF2C;" />
+            </StackPanel>
+
+            <Button Content="Test" />
+
         </DockPanel>
-        <DockPanel Margin="0,18,0,0">
-            <ToolBarTray DockPanel.Dock="Top">
-                <ToolBar>
-                    <Button>
-                        <Label Content="Paste"/>
-                    </Button>
-                    <Button>
-                        <Label Content="Paste"/>
-                    </Button>
-                    <Button>
-                        <Label Content="Paste"/>
-                    </Button>
-                    <Button>
-                        <Label Content="Paste"/>
-                    </Button>
-                    <Button>
-                        <Label Content="Paste"/>
-                    </Button>
+        -->
+
+        <DockPanel Grid.Row="1">
+            <ToolBarTray DockPanel.Dock="Top" Height="32">
+                <ToolBar Style="{StaticResource TopToolBar}">
+
+                    <Menu ToolBar.OverflowMode="Never">
+                        <MenuItem Header="File"/>
+                        <MenuItem Header="Paste"/>
+                 
+                        
+                        <MenuItem Header="Paste"/>
+                    </Menu>
+
                     <Separator />
-                    <Button>
-                        <Label Content="Paste"/>
-                    </Button>
-                    <Button>
-                        <Label Content="Paste"/>
-                    </Button>
-                    <ComboBox>
-                        <ComboBoxItem>Lets</ComboBoxItem>
-                        <ComboBoxItem>Fuckin</ComboBoxItem>
-                        <ComboBoxItem>Gooo</ComboBoxItem>
-                        <ComboBoxItem IsSelected="True">Yo?</ComboBoxItem>
-                    </ComboBox>
+
+                    <Menu ToolBar.OverflowMode="Never">
+                        <MenuItem Header="File"/>
+                        <MenuItem Header="Paste"/>
+
+
+                        <MenuItem Header="Paste"/>
+                        <ComboBox>
+                            <ComboBoxItem>Lets</ComboBoxItem>
+                            <ComboBoxItem>Fuckin</ComboBoxItem>
+                            <ComboBoxItem>Gooo</ComboBoxItem>
+                            <ComboBoxItem IsSelected="True">Yo?</ComboBoxItem>
+                        </ComboBox>
+                    </Menu>
+
+                    
                 </ToolBar>
             </ToolBarTray>
         </DockPanel>
-        <Grid/>
+
+
+        <Grid Grid.Row="2">
+            <Button Style="{DynamicResource btnGreen}" Width="auto" Content="Am I right fellers"/>
+        </Grid>
+
+
     </Grid>
 </Window>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Diagnostics;
 
 namespace SoundCabooseWPFVersion
 {
@@ -23,6 +24,13 @@ namespace SoundCabooseWPFVersion
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Grid_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+
+            Debug.WriteLine("something");
         }
     }
 }

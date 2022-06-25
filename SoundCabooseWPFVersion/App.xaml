@@ -4,6 +4,14 @@
              xmlns:local="clr-namespace:SoundCabooseWPFVersion"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary Source="Styles/Styles.xaml"/>
+
+                <ResourceDictionary Source="Styles/TestColors.xaml"/>
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
