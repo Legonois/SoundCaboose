@@ -7,12 +7,14 @@
         xmlns:syncfusionskin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
         xmlns:local="clr-namespace:SoundCabooseWPFVersion"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="MainWindow" Height="800" Width="1500"
         MinHeight="400" MaxHeight="6000"
         MinWidth="750" MaxWidth="11250"
         WindowStyle="None"
         Background="#1A1A1D"
         ResizeMode="CanResizeWithGrip"
+        WindowStartupLocation="CenterScreen"
+        
         >
 
     <WindowChrome.WindowChrome>
@@ -160,35 +162,28 @@
 
 
         <sync:DockingManager HorizontalAlignment="Stretch" Grid.Row="2" UseDocumentContainer="True" UseNativeFloatWindow="True" VerticalAlignment="Stretch">
-            <ContentControl x:Name="dockRight" 
+
+            <ContentControl x:Name="Properties" 
                             sync:DockingManager.Header="Dock Right" 
                             sync:DockingManager.State="Dock" 
                             sync:DockingManager.SideInDockedMode="Right"
-                            sync:DockingManager.DesiredHeightInDockedMode="200">
-                
-                
-                
-            </ContentControl>
-            <ContentControl x:Name="dockBottom" sync:DockingManager.Header="Dock Bottom" sync:DockingManager.State="Dock" sync:DockingManager.SideInDockedMode="Bottom">
-            
-                <Button>Yoooo</Button>
-                
-            </ContentControl>
-            <ContentControl x:Name="dockTabbed" sync:DockingManager.Header="Dock Tabbed" sync:DockingManager.State="Dock" sync:DockingManager.SideInDockedMode="Tabbed" sync:DockingManager.TargetNameInDockedMode="dockBottom">
-            
-                
-                
-            </ContentControl>
-            <ContentControl x:Name="autoHidden" sync:DockingManager.Header="Auto Hidden" sync:DockingManager.State="AutoHidden" sync:DockingManager.SideInDockedMode="Left"/>
-            <ContentControl x:Name="document1" sync:DockingManager.CanDocument="True" sync:DockingManager.Header="Document1.xaml" sync:DockingManager.State="Document">
-                <Grid>
-                    <Button>Test</Button>
-                </Grid>
-                
-                
+                            sync:DockingManager.DesiredMinWidthInDockedMode="300"
+                            sync:DockingManager.DesiredWidthInDockedMode="400">
+
+
+
             </ContentControl>
 
-            <ContentControl x:Name="document2" sync:DockingManager.CanDocument="True" sync:DockingManager.Header="Document2.xaml" sync:DockingManager.State="Document" />
+            <ContentControl x:Name="NodeGraph" sync:DockingManager.SideInDockedMode="Top"/>
+
+
+
+            <ContentControl x:Name="NodeGraph2" sync:DockingManager.SideInDockedMode="Left"
+                            sync:DockingManager.DesiredHeightInDockedMode="400">
+
+            
+            <ContentControl x:Name="NodeGraph3" sync:DockingManager.SideInDockedMode="Bottom"/>
+
         </sync:DockingManager>
 
 

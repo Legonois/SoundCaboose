@@ -38,6 +38,15 @@ namespace DebugWPF
                 SfSkinManager.RegisterTheme(style, styleInstance);
             }
             SfSkinManager.SetTheme(this, new Theme(style));
+
+            dockingManager2.PersistState = true;
+        }
+
+        private void CoolDockingLoad(object sender, RoutedEventArgs e)
+        {
+            dockingManager2.LoadDockState("C:/Users/wesle/Downloads/me.xaml");
+
+            dockingManager2.SaveDockState("C:/Users/wesle/Downloads/me.xaml");
         }
     }
 }

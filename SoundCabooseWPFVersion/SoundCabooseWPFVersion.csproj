@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <Folder Include="Media\" />
+    <Folder Include="Default Saves\" />
   </ItemGroup>
 
   <ItemGroup>

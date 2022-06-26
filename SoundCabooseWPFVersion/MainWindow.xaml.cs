@@ -74,16 +74,25 @@ namespace SoundCabooseWPFVersion
         {
             Button? b = sender as Button;
             Close();
+
+            
         }
 
         private void MaximizeBtn_Click(object sender, RoutedEventArgs e)
         {
+
+            Button? maximizeBtn = sender as Button;
+
+            
+
             if (WindowState == WindowState.Normal)
             {
+                maximizeBtn.Content = "";
                 WindowState = WindowState.Maximized;
             }
             else
             {
+                maximizeBtn.Content = "";
                 WindowState = WindowState.Normal;
             }
 
@@ -93,5 +102,17 @@ namespace SoundCabooseWPFVersion
         {
             WindowState = WindowState.Minimized;
         }
-    }
+
+
+    //    dockingManager2.PersistState = true;
+    //    }
+
+    //private void CoolDockingLoad(object sender, RoutedEventArgs e)
+    //{
+    //    dockingManager2.LoadDockState("C:/Users/wesle/Downloads/me.xaml");
+
+    //    dockingManager2.SaveDockState("C:/Users/wesle/Downloads/me.xaml");
+    //}
+
+}
 }
