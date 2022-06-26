@@ -75,17 +75,17 @@
             <Button x:Name="MinimizeBtn"
                     Grid.Column="2" 
                     Style="{DynamicResource WindowsButtons}"
-                    Content="&#xE921;"/>
+                    Content="&#xE921;" Click="MinimizeBtn_Click"/>
 
             <Button x:Name="MaximizeBtn"
                     Grid.Column="3" 
                     Style="{DynamicResource WindowsButtons}"
-                    Content="&#xE922;"/>
+                    Content="&#xE922;" Click="MaximizeBtn_Click"/>
 
             <Button x:Name="CloseBtn"
                     Grid.Column="4" 
                     Style="{DynamicResource WindowsButtons}"
-                    Content="&#xE8BB;"/>
+                    Content="&#xE8BB;" Click="CloseBtn_Click"/>
         </Grid>
 
         <!--
@@ -164,11 +164,30 @@
                             sync:DockingManager.Header="Dock Right" 
                             sync:DockingManager.State="Dock" 
                             sync:DockingManager.SideInDockedMode="Right"
-                            sync:DockingManager.DesiredHeightInDockedMode="200"/>
-            <ContentControl x:Name="dockBottom" sync:DockingManager.Header="Dock Bottom" sync:DockingManager.State="Dock" sync:DockingManager.SideInDockedMode="Bottom"/>
-            <ContentControl x:Name="dockTabbed" sync:DockingManager.Header="Dock Tabbed" sync:DockingManager.State="Dock" sync:DockingManager.SideInDockedMode="Tabbed" sync:DockingManager.TargetNameInDockedMode="dockBottom"/>
+                            sync:DockingManager.DesiredHeightInDockedMode="200">
+                
+                
+                
+            </ContentControl>
+            <ContentControl x:Name="dockBottom" sync:DockingManager.Header="Dock Bottom" sync:DockingManager.State="Dock" sync:DockingManager.SideInDockedMode="Bottom">
+            
+                <Button>Yoooo</Button>
+                
+            </ContentControl>
+            <ContentControl x:Name="dockTabbed" sync:DockingManager.Header="Dock Tabbed" sync:DockingManager.State="Dock" sync:DockingManager.SideInDockedMode="Tabbed" sync:DockingManager.TargetNameInDockedMode="dockBottom">
+            
+                
+                
+            </ContentControl>
             <ContentControl x:Name="autoHidden" sync:DockingManager.Header="Auto Hidden" sync:DockingManager.State="AutoHidden" sync:DockingManager.SideInDockedMode="Left"/>
-            <ContentControl x:Name="document1" sync:DockingManager.CanDocument="True" sync:DockingManager.Header="Document1.xaml" sync:DockingManager.State="Document"/>
+            <ContentControl x:Name="document1" sync:DockingManager.CanDocument="True" sync:DockingManager.Header="Document1.xaml" sync:DockingManager.State="Document">
+                <Grid>
+                    <Button>Test</Button>
+                </Grid>
+                
+                
+            </ContentControl>
+
             <ContentControl x:Name="document2" sync:DockingManager.CanDocument="True" sync:DockingManager.Header="Document2.xaml" sync:DockingManager.State="Document" />
         </sync:DockingManager>
 
