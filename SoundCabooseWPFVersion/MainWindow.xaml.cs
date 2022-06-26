@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Diagnostics;
 using Syncfusion;
 using Syncfusion.Windows.Tools.Controls;
+using Syncfusion.SfSkinManager;
 
 namespace SoundCabooseWPFVersion
 {
@@ -28,6 +29,21 @@ namespace SoundCabooseWPFVersion
         public MainWindow()
         {
             InitializeComponent();
+            string style = "MaterialDarkRoyalBlue";
+            SkinHelper styleInstance = null;
+            var skinHelpterStr = "Syncfusion.Themes." + style + ".WPF." + style + "SkinHelper, Syncfusion.Themes." + style + ".WPF";
+            Type skinHelpterType = Type.GetType(skinHelpterStr);
+            if (skinHelpterType != null)
+                styleInstance = Activator.CreateInstance(skinHelpterType) as SkinHelper;
+            if (styleInstance != null)
+            {
+                SfSkinManager.RegisterTheme(style, styleInstance);
+            }
+            SfSkinManager.SetTheme(this, new Theme(style));
+
+            // old style MaterialDark
+            // new style MaterialDarkRoyalBlue
+
             //DockingManager dockingManager = new DockingManager();
 
             //ContentControl SolutionExplorer = new ContentControl();

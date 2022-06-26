@@ -1,0 +1,103 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"  
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:po="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
+                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    
+    <Color x:Key="DropShadow.Static.Background">#AA000000</Color>
+    
+    <DropShadowEffect x:Key="Default.ShadowDepth1" BlurRadius="5" ShadowDepth="1" Direction="270" Color="{StaticResource DropShadow.Static.Background}" Opacity=".42" RenderingBias="Performance" po:Freeze="True" />
+    <DropShadowEffect x:Key="Default.ShadowDepth2" BlurRadius="8" ShadowDepth="1.5" Direction="270" Color="{StaticResource DropShadow.Static.Background}" Opacity=".42" RenderingBias="Performance" po:Freeze="True" />
+    <DropShadowEffect x:Key="Default.ShadowDepth3" BlurRadius="14" ShadowDepth="4.5" Direction="270" Color="{StaticResource DropShadow.Static.Background}" Opacity=".42" RenderingBias="Performance" po:Freeze="True" />
+    <DropShadowEffect x:Key="Default.ShadowDepth4" BlurRadius="25" ShadowDepth="8" Direction="270" Color="{StaticResource DropShadow.Static.Background}" Opacity=".42" RenderingBias="Performance" po:Freeze="True" />
+    <DropShadowEffect x:Key="Default.ShadowDepth5" BlurRadius="35" ShadowDepth="13" Direction="270" Color="{StaticResource DropShadow.Static.Background}" Opacity=".42" RenderingBias="Performance" po:Freeze="True" />
+    <DropShadowEffect x:Key="Default.ShadowDepth6" BlurRadius="14" ShadowDepth="4.5" Color="{StaticResource DropShadow.Static.Background}" Opacity=".42" RenderingBias="Performance" po:Freeze="True" />
+
+
+<sys:Double x:Key="MaterialDark.HeaderTextStyle">16</sys:Double>
+<sys:Double x:Key="MaterialDark.SubHeaderTextStyle">14</sys:Double>
+<sys:Double x:Key="MaterialDark.TitleTextStyle">14</sys:Double>
+<sys:Double x:Key="MaterialDark.SubTitleTextStyle">12</sys:Double>
+<sys:Double x:Key="MaterialDark.BodyTextStyle">12</sys:Double>
+<sys:Double x:Key="MaterialDark.CaptionText">10</sys:Double>
+	<FontFamily x:Key="MaterialDark.ThemeFontFamily">pack://application:,,,/Syncfusion.Themes.MaterialDark.WPF;component/Common/Fonts/#Roboto</FontFamily>
+<FontWeight x:Key="MaterialDark.FontWeightNormal">Normal</FontWeight> 
+<FontWeight x:Key="MaterialDark.FontWeightMedium">Medium</FontWeight> 
+<Thickness x:Key="MaterialDark.BorderThickness">0,0,0,0</Thickness> 
+<Thickness x:Key="MaterialDark.BorderThickness1">1,1,1,1</Thickness> 
+<Thickness x:Key="MaterialDark.BorderThickness2">2,2,2,2</Thickness> 
+<Thickness x:Key="MaterialDark.BorderThickness0001">0,0,0,1</Thickness> 
+<Thickness x:Key="MaterialDark.BorderThickness0002">0,0,0,2</Thickness> 
+<Thickness x:Key="MaterialDark.BorderThickness1000">1,0,0,0</Thickness> 
+<Thickness x:Key="MaterialDark.BorderThickness0100">0,1,0,0</Thickness> 
+<Thickness x:Key="MaterialDark.BorderThickness0010">0,0,1,0</Thickness> 
+<Thickness x:Key="MaterialDark.BorderThickness1110">1,1,1,0</Thickness> 
+<Thickness x:Key="MaterialDark.BorderThickness1101">1,1,0,1</Thickness> 
+<Thickness x:Key="MaterialDark.BorderThickness1011">1,0,1,1</Thickness> 
+<Thickness x:Key="MaterialDark.BorderThickness0111">0,1,1,1</Thickness> 
+<Thickness x:Key="MaterialDark.BorderThickness0011">0,0,1,1</Thickness> 
+<Thickness x:Key="MaterialDark.ThemeBorderThicknessVariant1">0,0,0,1</Thickness> 
+<Thickness x:Key="MaterialDark.ThemeBorderThicknessVariant2">0,0,0,2</Thickness> 
+<Thickness x:Key="MaterialDark.FocusMargin">2,2,2,2</Thickness> 
+<sys:Double x:Key="MaterialDark.StrokeThickness">0</sys:Double>
+<sys:Double x:Key="MaterialDark.StrokeThickness1">1</sys:Double>
+<sys:Double x:Key="MaterialDark.StrokeThickness2">2</sys:Double>
+<DoubleCollection x:Key="MaterialDark.StrokeDashArray">1 2</DoubleCollection> 
+<CornerRadius x:Key="MaterialDark.ThemeCornerRadiusVariant1">2,2,2,2</CornerRadius> 
+<CornerRadius x:Key="MaterialDark.ThemeCornerRadiusVariant2">0,0,0,0</CornerRadius> 
+<CornerRadius x:Key="MaterialDark.CornerRadius2">2,2,2,2</CornerRadius> 
+<CornerRadius x:Key="MaterialDark.CornerRadius4">4,4,4,4</CornerRadius> 
+<CornerRadius x:Key="MaterialDark.CornerRadius8">8,8,8,8</CornerRadius> 
+	<sys:Double x:Key="TouchMode.MinHeight">32</sys:Double>
+	<sys:Double x:Key="TouchMode.MinWidth">32</sys:Double>
+	<sys:Double x:Key="TouchMode.MinSize">24</sys:Double>
+<sys:Double x:Key="MaterialDark.MinHeight">22</sys:Double>
+<sys:Double x:Key="MaterialDark.MinHeight1">24</sys:Double>
+<sys:Double x:Key="MaterialDark.IconPanelSize">32</sys:Double>
+    <Style x:Key="KeyboardFocusVisualStyle">
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border Margin="-1" BorderThickness="{StaticResource MaterialDark.BorderThickness1}" BorderBrush="#FF666666">
+                        <Border BorderThickness="{StaticResource MaterialDark.BorderThickness1}" BorderBrush="#FF121212"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="CheckKeyboardFocusVisualStyle">
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border Margin="-2" BorderThickness="{StaticResource MaterialDark.BorderThickness1}" BorderBrush="#FF666666">
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="FlatKeyboardFocusVisualStyle">
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border BorderThickness="{StaticResource MaterialDark.BorderThickness1}" BorderBrush="#FF666666">
+                        <Border BorderThickness="{StaticResource MaterialDark.BorderThickness1}" BorderBrush="#FF121212"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="CircleKeyboardFocusVisualStyle">
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border Margin="-1" BorderThickness="{StaticResource MaterialDark.BorderThickness1}" BorderBrush="#FF666666" CornerRadius="100">
+                        <Border BorderThickness="{StaticResource MaterialDark.BorderThickness1}" BorderBrush="#FF121212" CornerRadius="100"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
