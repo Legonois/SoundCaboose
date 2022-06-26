@@ -69,6 +69,8 @@
                     </MenuItem>
                     <MenuItem Header="View">
 
+                        <MenuItem Header="TEST"/>
+
                     </MenuItem>
                 </Menu>
 
@@ -161,7 +163,7 @@
         </DockPanel>
 
 
-        <sync:DockingManager HorizontalAlignment="Stretch" Grid.Row="2" UseDocumentContainer="True" UseNativeFloatWindow="True" VerticalAlignment="Stretch">
+        <sync:DockingManager x:Name="MainDockingManager" HorizontalAlignment="Stretch" Grid.Row="2" UseDocumentContainer="True" UseNativeFloatWindow="True" VerticalAlignment="Stretch">
 
             <ContentControl x:Name="Properties" 
                             sync:DockingManager.Header="Dock Right" 
@@ -171,17 +173,21 @@
                             sync:DockingManager.DesiredWidthInDockedMode="400">
 
 
+                <Button Content="AHhahhahah load" Click="LoadBtn_Click"/>
+
 
             </ContentControl>
 
-            <ContentControl x:Name="NodeGraph" sync:DockingManager.SideInDockedMode="Top"/>
+            <ContentControl x:Name="NodeGraph" sync:DockingManager.SideInDockedMode="Top" sync:DockingManager.Header="HIWAHDishaikwdhisoahdwui">
+
+                <Button Content="SAVE" Click="Button_Click" />
+
+            </ContentControl>
 
 
 
             <ContentControl x:Name="NodeGraph2" sync:DockingManager.SideInDockedMode="Left"
-                            sync:DockingManager.DesiredHeightInDockedMode="400">
-
-            
+                            sync:DockingManager.DesiredHeightInDockedMode="400"/>
             <ContentControl x:Name="NodeGraph3" sync:DockingManager.SideInDockedMode="Bottom"/>
 
         </sync:DockingManager>

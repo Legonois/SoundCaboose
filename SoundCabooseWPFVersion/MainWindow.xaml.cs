@@ -29,7 +29,7 @@ namespace SoundCabooseWPFVersion
         public MainWindow()
         {
             InitializeComponent();
-            string style = "MaterialDarkRoyalBlue";
+            string style = "MaterialDark";
             SkinHelper styleInstance = null;
             var skinHelpterStr = "Syncfusion.Themes." + style + ".WPF." + style + "SkinHelper, Syncfusion.Themes." + style + ".WPF";
             Type skinHelpterType = Type.GetType(skinHelpterStr);
@@ -103,16 +103,26 @@ namespace SoundCabooseWPFVersion
             WindowState = WindowState.Minimized;
         }
 
+        private void LoadBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainDockingManager.LoadDockState("C:/Users/wesle/Downloads/me.xaml");
+        }
 
-    //    dockingManager2.PersistState = true;
-    //    }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainDockingManager.SaveDockState("C:/Users/wesle/Downloads/me.xaml");
+        }
 
-    //private void CoolDockingLoad(object sender, RoutedEventArgs e)
-    //{
-    //    dockingManager2.LoadDockState("C:/Users/wesle/Downloads/me.xaml");
 
-    //    dockingManager2.SaveDockState("C:/Users/wesle/Downloads/me.xaml");
-    //}
+        //    dockingManager2.PersistState = true;
+        //    }
 
-}
+        //private void CoolDockingLoad(object sender, RoutedEventArgs e)
+        //{
+        //    dockingManager2.LoadDockState("C:/Users/wesle/Downloads/me.xaml");
+
+        //    dockingManager2.SaveDockState("C:/Users/wesle/Downloads/me.xaml");
+        //}
+
+    }
 }
