@@ -72,6 +72,7 @@ namespace SoundCabooseWPFVersion
 
         private void CloseBtn_Click(object sender, RoutedEventArgs e)
         {
+            Button? b = sender as Button;
             Close();
         }
 
