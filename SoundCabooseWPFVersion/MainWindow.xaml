@@ -55,10 +55,32 @@
                   PreviewMouseLeftButtonDown="Grid_PreviewMouseLeftButtonDown" 
                   Background="Transparent">
 
-                <sync:MenuAdv VerticalAlignment="Center" Background="Transparent" Foreground="White">
-                    <sync:MenuItemAdv Header="I hope">
+                <sync:MenuAdv VerticalAlignment="Center" HorizontalAlignment="Left" Background="Transparent" Foreground="White">
+                    <sync:MenuItemAdv Header="File">
                         <sync:MenuItemAdv Header="Pls"/>
+
+                        
                     </sync:MenuItemAdv>
+
+                    <sync:MenuItemAdv Header="Edit">
+                        <sync:MenuItemAdv Header="Pls"/>
+
+
+                    </sync:MenuItemAdv>
+
+                    <sync:MenuItemAdv Header="View">
+                        <sync:MenuItemAdv Header="Pls"/>
+
+
+                    </sync:MenuItemAdv>
+
+                    <sync:MenuItemAdv Header="Dev">
+                        <sync:MenuItemAdv Header="Pls"/>
+
+
+                    </sync:MenuItemAdv>
+
+
                 </sync:MenuAdv>
                 
                 <!--<Menu VerticalAlignment="Center" Background="Transparent" Foreground="White">
@@ -185,14 +207,19 @@
         <sync:DockingManager x:Name="MainDockingManager" HorizontalAlignment="Stretch" Grid.Row="2" UseDocumentContainer="True" UseNativeFloatWindow="True" VerticalAlignment="Stretch">
 
             <ContentControl x:Name="Properties" 
-                            sync:DockingManager.Header="Dock Right" 
+                            sync:DockingManager.Header="Properties" 
                             sync:DockingManager.State="Dock" 
                             sync:DockingManager.SideInDockedMode="Right"
                             sync:DockingManager.DesiredMinWidthInDockedMode="300"
                             sync:DockingManager.DesiredWidthInDockedMode="400">
 
 
-                
+                <sync:PropertyGrid SelectedObject="{Binding SelectedEmployee}"
+                         Name="propertyGrid1" >
+                    <sync:PropertyGrid.DataContext>
+                        <local:ViewModel></local:ViewModel>
+                    </sync:PropertyGrid.DataContext>
+                </sync:PropertyGrid>
 
 
             </ContentControl>
@@ -231,28 +258,37 @@
 
                     <Grid.ColumnDefinitions>
 
-                        <ColumnDefinition Width="30"/>
-
                     </Grid.ColumnDefinitions>
 
-                    <Grid.RowDefinitions>
+                    <ScrollViewer HorizontalScrollBarVisibility="Visible">
+                        <ContentControl>
+                            <Grid>
+                                <local:/>
+                            </Grid>
+                        </ContentControl>
+                    </ScrollViewer>
 
-                        <RowDefinition Height="140"/>
-                        <RowDefinition Height="140"/>
-                        <RowDefinition Height="140"/>
-                        <RowDefinition Height="140"/>
+                    <!--<local:TestControl Grid.Row="0"/>
+                    <local:TestControl Grid.Row="1"/>
+                    <local:TestControl Grid.Row="2"/>
+                    <local:TestControl Grid.Row="3"/>-->
 
-                    </Grid.RowDefinitions>
-
-                    <sync:SfRangeSlider Maximum="100" Minimum="0" Value="50" Orientation="Vertical" TickFrequency="10" TickPlacement="Outside"/>
 
                 </Grid>
 
             </ContentControl>
 
             <ContentControl x:Name="NodeGraph2" sync:DockingManager.SideInDockedMode="Left"
-                            sync:DockingManager.DesiredHeightInDockedMode="400"/>
-            <ContentControl x:Name="NodeGraph3" sync:DockingManager.SideInDockedMode="Bottom"/>
+                            sync:DockingManager.DesiredHeightInDockedMode="400"
+                            sync:DockingManager.Header="Node Graph">
+                
+            </ContentControl>
+
+            <ContentControl x:Name="NodeGraph3" 
+                            sync:DockingManager.SideInDockedMode="Bottom"
+                            sync:DockingManager.Header="Keyboard">
+                
+            </ContentControl>
 
         </sync:DockingManager>
 

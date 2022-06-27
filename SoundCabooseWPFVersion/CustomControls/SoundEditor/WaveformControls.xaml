@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="SoundCabooseWPFVersion.CustomControls.WaveformControls"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SoundCabooseWPFVersion.CustomControls"          
+             xmlns:sync="http://schemas.syncfusion.com/wpf"
+             xmlns:syncfusionskin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+             mc:Ignorable="d" >
+    <Grid>
+
+        <Border Background="#222222" Padding="12,12,0,12" HorizontalAlignment="Left" Opacity="1">
+
+            <Grid Height="116">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="116"/>
+                </Grid.RowDefinitions>
+
+                <sync:SfRangeSlider Maximum="100" Minimum="0" Value="50" Orientation="Vertical" TickFrequency="12.5" TickPlacement="Outside" Grid.Column="0" Margin="0,5,0,5" HorizontalAlignment="Left" VerticalAlignment="Center" Height="106"/>
+
+                <Grid Grid.Column="1" Background="#383838" Margin="10,0,10,0" Opacity="1">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <sync:ButtonAdv/>
+
+
+
+                </Grid>
+
+                
+
+            </Grid>
+        </Border>
+
+    </Grid>
+</UserControl>

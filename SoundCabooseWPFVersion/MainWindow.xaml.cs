@@ -16,6 +16,7 @@ using System.Diagnostics;
 using Syncfusion;
 using Syncfusion.Windows.Tools.Controls;
 using Syncfusion.SfSkinManager;
+using Syncfusion.Windows.PropertyGrid;
 
 namespace SoundCabooseWPFVersion
 {
@@ -124,5 +125,29 @@ namespace SoundCabooseWPFVersion
         //    dockingManager2.SaveDockState("C:/Users/wesle/Downloads/me.xaml");
         //}
 
+       
+
+        
+    }
+
+    public class Employee
+    {
+        public string WaveType { get; set; }
+        public int Frequency { get; set; }
+        public double Amlplitude { get; set; }
+    }
+
+    public class ViewModel
+    {
+        public object SelectedEmployee { get; set; }
+        public ViewModel()
+        {
+            SelectedEmployee = new Employee()
+            {
+                WaveType = "Sine",
+                Frequency = 25,
+                Amlplitude = .2342,
+            };
+        }
     }
 }

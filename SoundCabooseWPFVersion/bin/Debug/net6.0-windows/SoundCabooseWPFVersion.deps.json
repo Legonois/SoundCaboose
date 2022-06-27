@@ -10,6 +10,7 @@
         "dependencies": {
           "NAudio": "2.1.0",
           "Newtonsoft.Json": "13.0.1",
+          "Syncfusion.PropertyGrid.WPF": "20.1.0.61",
           "Syncfusion.SfChart.WPF": "20.1.0.61",
           "Syncfusion.SfGrid.WPF": "20.1.0.61",
           "Syncfusion.SfInput.WPF": "20.1.0.61",
@@ -132,6 +133,20 @@
           "lib/net6.0/Syncfusion.Licensing.dll": {
             "assemblyVersion": "20.1.0.61",
             "fileVersion": "20.1.0.61"
+          }
+        }
+      },
+      "Syncfusion.PropertyGrid.WPF/20.1.0.61": {
+        "dependencies": {
+          "Syncfusion.Licensing": "20.1.0.61",
+          "Syncfusion.SfInput.WPF": "20.1.0.61",
+          "Syncfusion.Shared.WPF": "20.1.0.61",
+          "Syncfusion.Tools.WPF": "20.1.0.61"
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Syncfusion.PropertyGrid.WPF.dll": {
+            "assemblyVersion": "20.1500.0.61",
+            "fileVersion": "20.1500.0.61"
           }
         }
       },
@@ -322,6 +337,13 @@
       "sha512": "sha512-zKaxU7BLBwetkXI5auOs9t1ANjM8x+QGssaw/mopmefSBL63Vk5KklQ0ZsD8MzSRBv4vc+o1DxSbKsR/Vb5d4Q==",
       "path": "syncfusion.licensing/20.1.0.61",
       "hashPath": "syncfusion.licensing.20.1.0.61.nupkg.sha512"
+    },
+    "Syncfusion.PropertyGrid.WPF/20.1.0.61": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VejtfpnnsY6Cw2M7FIS+HVd7LLeVLOdP88b7qTz+IiHtCOXQVM/HKtitQC1CiTw9ZSMomeX5UW4OTLvOmAyFRA==",
+      "path": "syncfusion.propertygrid.wpf/20.1.0.61",
+      "hashPath": "syncfusion.propertygrid.wpf.20.1.0.61.nupkg.sha512"
     },
     "Syncfusion.SfChart.WPF/20.1.0.61": {
       "type": "package",
