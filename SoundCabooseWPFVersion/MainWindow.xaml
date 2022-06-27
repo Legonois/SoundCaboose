@@ -13,9 +13,7 @@
         WindowStyle="None"
         Background="#1A1A1D"
         ResizeMode="CanResizeWithGrip"
-        WindowStartupLocation="CenterScreen"
-        
-        >
+        WindowStartupLocation="CenterScreen">
 
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="0"/>
@@ -57,8 +55,14 @@
                   PreviewMouseLeftButtonDown="Grid_PreviewMouseLeftButtonDown" 
                   Background="Transparent">
 
-                <Menu VerticalAlignment="Center" Background="Transparent" Foreground="White">
-
+                <sync:MenuAdv VerticalAlignment="Center" Background="Transparent" Foreground="White">
+                    <sync:MenuItemAdv Header="I hope">
+                        <sync:MenuItemAdv Header="Pls"/>
+                    </sync:MenuItemAdv>
+                </sync:MenuAdv>
+                
+                <!--<Menu VerticalAlignment="Center" Background="Transparent" Foreground="White">
+                
                     <MenuItem Header="_File" Margin="5,0,5,0">
                         <MenuItem Header="_Open"/>
                         <MenuItem Header="_Close"/>
@@ -72,7 +76,7 @@
                         <MenuItem Header="TEST"/>
 
                     </MenuItem>
-                </Menu>
+                </Menu>-->
 
             </Grid>
 
@@ -128,6 +132,19 @@
         -->
 
         <DockPanel Grid.Row="1">
+
+            <!--<sync:ToolBarTrayAdv>
+                <sync:ToolBarAdv>
+                    <Menu ToolBar.OverflowMode="Never">
+                        <MenuItem Header="File"/>
+                        <MenuItem Header="Paste"/>
+
+
+                        <MenuItem Header="Paste"/>
+                    </Menu>
+                </sync:ToolBarAdv>
+            </sync:ToolBarTrayAdv>-->
+            
             <ToolBarTray DockPanel.Dock="Top" Height="32">
 
                 
@@ -140,6 +157,8 @@
                         
                         <MenuItem Header="Paste"/>
                     </Menu>
+                    
+                    
 
                     <Separator />
 
@@ -173,18 +192,63 @@
                             sync:DockingManager.DesiredWidthInDockedMode="400">
 
 
-                <Button Content="AHhahhahah load" Click="LoadBtn_Click"/>
+                
 
+
+            </ContentControl>
+
+            <ContentControl x:Name="DevTools"
+                            sync:DockingManager.Header="Dev Tools"
+                            sync:DockingManager.State="Dock" 
+                            sync:DockingManager.SideInDockedMode="Right"
+                            sync:DockingManager.DesiredMinWidthInDockedMode="300"
+                            sync:DockingManager.DesiredWidthInDockedMode="400">
+
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <Button Grid.Row="0" x:Name="SaveBtn" Content="SAVE" Click="Button_Click" />
+
+                    <Button Grid.Row="1" x:Name="LoadBtn" Content="AHhahhahah load" Click="LoadBtn_Click"/>
+
+                </Grid>
 
             </ContentControl>
 
             <ContentControl x:Name="NodeGraph" sync:DockingManager.SideInDockedMode="Top" sync:DockingManager.Header="HIWAHDishaikwdhisoahdwui">
 
-                <Button Content="SAVE" Click="Button_Click" />
+                
 
             </ContentControl>
 
+            <ContentControl x:Name="SoundEditor" sync:DockingManager.SideInDockedMode="Left" sync:DockingManager.Header="SoundEditor">
 
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition Width="30"/>
+
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition Height="140"/>
+                        <RowDefinition Height="140"/>
+                        <RowDefinition Height="140"/>
+                        <RowDefinition Height="140"/>
+
+                    </Grid.RowDefinitions>
+
+                    <sync:SfRangeSlider Maximum="100" Minimum="0" Value="50" Orientation="Vertical" TickFrequency="10" TickPlacement="Outside"/>
+
+                </Grid>
+
+            </ContentControl>
 
             <ContentControl x:Name="NodeGraph2" sync:DockingManager.SideInDockedMode="Left"
                             sync:DockingManager.DesiredHeightInDockedMode="400"/>
@@ -193,11 +257,9 @@
         </sync:DockingManager>
 
 
-
         <Grid Grid.Row="3" Background="#424242">
-            
-        </Grid>
 
+        </Grid>
     </Grid>
 </Window>
 
