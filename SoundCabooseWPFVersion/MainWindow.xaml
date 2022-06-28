@@ -27,19 +27,6 @@
             <RowDefinition Height="24"/>
         </Grid.RowDefinitions>
 
-
-
-
-        <!--
-        <DockPanel Grid.Row="0">
-            <TextBlock>Left</TextBlock>
-
-            <Button HorizontalAlignment="Right">Minimize</Button>
-            <Button HorizontalAlignment="Right" HorizontalContentAlignment="Center">Maximize</Button>
-            <Button HorizontalAlignment="Right">Close</Button>
-        </DockPanel> 
-        -->
-
         <Grid Grid.Row="0" Background="#1A1A1D">
 
             <Grid.ColumnDefinitions>
@@ -59,7 +46,7 @@
                     <sync:MenuItemAdv Header="File">
                         <sync:MenuItemAdv Header="Pls"/>
 
-                        
+
                     </sync:MenuItemAdv>
 
                     <sync:MenuItemAdv Header="Edit">
@@ -77,28 +64,9 @@
                     <sync:MenuItemAdv Header="Dev">
                         <sync:MenuItemAdv Header="Pls"/>
 
-
                     </sync:MenuItemAdv>
 
-
                 </sync:MenuAdv>
-                
-                <!--<Menu VerticalAlignment="Center" Background="Transparent" Foreground="White">
-                
-                    <MenuItem Header="_File" Margin="5,0,5,0">
-                        <MenuItem Header="_Open"/>
-                        <MenuItem Header="_Close"/>
-                        <MenuItem Header="_Save"/>
-                    </MenuItem>
-                    <MenuItem Header="Edit" Margin="5,0,5,0" >
-
-                    </MenuItem>
-                    <MenuItem Header="View">
-
-                        <MenuItem Header="TEST"/>
-
-                    </MenuItem>
-                </Menu>-->
 
             </Grid>
 
@@ -118,55 +86,8 @@
                     Content="&#xE8BB;" Click="CloseBtn_Click"/>
         </Grid>
 
-        <!--
-        <DockPanel Grid.Row="0" >
-            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Height="32">
-                <Button FontFamily="Segoe UI Symbol" Content="&#xE110;" Margin="5,0,5,0"/>
-                <Menu DockPanel.Dock="Top" VerticalAlignment="Center">
-                    
-                    <MenuItem Header="_File" Margin="5,0,5,0">
-                        <MenuItem Header="_Open"/>
-                        <MenuItem Header="_Close"/>
-                        <MenuItem Header="_Save"/>
-                    </MenuItem>
-                    <MenuItem Header="Edit" Margin="5,0,5,0" >
-
-                    </MenuItem>
-                    <MenuItem Header="View">
-
-                    </MenuItem>
-                </Menu>
-
-
-
-                <Menu HorizontalAlignment="Right">
-                    <MenuItem FontFamily="Segoe MDL2 Assets" Header="&#xEF2C;" Height="18" />
-                </Menu>
-            </StackPanel>
-
-            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="32" Orientation="Horizontal" FlowDirection="RightToLeft">
-                <Button FontFamily="Segoe MDL2 Assets" Content="&#xEF2C;" />
-            </StackPanel>
-
-            <Button Content="Test" />
-
-        </DockPanel>
-        -->
-
         <DockPanel Grid.Row="1">
 
-            <!--<sync:ToolBarTrayAdv>
-                <sync:ToolBarAdv>
-                    <Menu ToolBar.OverflowMode="Never">
-                        <MenuItem Header="File"/>
-                        <MenuItem Header="Paste"/>
-
-
-                        <MenuItem Header="Paste"/>
-                    </Menu>
-                </sync:ToolBarAdv>
-            </sync:ToolBarTrayAdv>-->
-            
             <ToolBarTray DockPanel.Dock="Top" Height="32">
 
                 
@@ -202,10 +123,17 @@
                 </ToolBar>
             </ToolBarTray>
         </DockPanel>
-
+        
+        
+        
+        
+        
+        <!--Docking Panels-->
 
         <sync:DockingManager x:Name="MainDockingManager" HorizontalAlignment="Stretch" Grid.Row="2" UseDocumentContainer="True" UseNativeFloatWindow="True" VerticalAlignment="Stretch">
 
+            <!--Properties Window-->
+            
             <ContentControl x:Name="Properties" 
                             sync:DockingManager.Header="Properties" 
                             sync:DockingManager.State="Dock" 
@@ -224,6 +152,8 @@
 
             </ContentControl>
 
+            <!--DevTools Window-->
+
             <ContentControl x:Name="DevTools"
                             sync:DockingManager.Header="Dev Tools"
                             sync:DockingManager.State="Dock" 
@@ -237,7 +167,7 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    
+
                     <Button Grid.Row="0" x:Name="SaveBtn" Content="SAVE" Click="Button_Click" />
 
                     <Button Grid.Row="1" x:Name="LoadBtn" Content="AHhahhahah load" Click="LoadBtn_Click"/>
@@ -246,11 +176,7 @@
 
             </ContentControl>
 
-            <ContentControl x:Name="NodeGraph" sync:DockingManager.SideInDockedMode="Top" sync:DockingManager.Header="HIWAHDishaikwdhisoahdwui">
-
-                
-
-            </ContentControl>
+            <!--SoundEditor Window-->
 
             <ContentControl x:Name="SoundEditor" sync:DockingManager.SideInDockedMode="Left" sync:DockingManager.Header="SoundEditor">
 
@@ -263,35 +189,64 @@
                     <ScrollViewer HorizontalScrollBarVisibility="Visible">
                         <ContentControl>
                             <Grid>
-                                <local:/>
+                                <local:TestControl/>
+                                
                             </Grid>
                         </ContentControl>
                     </ScrollViewer>
-
-                    <!--<local:TestControl Grid.Row="0"/>
-                    <local:TestControl Grid.Row="1"/>
-                    <local:TestControl Grid.Row="2"/>
-                    <local:TestControl Grid.Row="3"/>-->
-
 
                 </Grid>
 
             </ContentControl>
 
-            <ContentControl x:Name="NodeGraph2" sync:DockingManager.SideInDockedMode="Left"
+            <!--NodeGraph Window-->
+
+            <ContentControl x:Name="NodeGraph" sync:DockingManager.SideInDockedMode="Left"
                             sync:DockingManager.DesiredHeightInDockedMode="400"
                             sync:DockingManager.Header="Node Graph">
                 
             </ContentControl>
 
-            <ContentControl x:Name="NodeGraph3" 
+            <!--Keyboard Window-->
+
+            <ContentControl x:Name="Keyboard" 
                             sync:DockingManager.SideInDockedMode="Bottom"
                             sync:DockingManager.Header="Keyboard">
                 
             </ContentControl>
+            
+            <!--DevSynth-->
+
+            <ContentControl x:Name="DevSynth" 
+                            sync:DockingManager.SideInDockedMode="Bottom"
+                            sync:DockingManager.Header="DevSynth">
+
+                <Grid>
+
+                    <StackPanel Height="50" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12">
+
+                        <Button x:Name="DSPlayBtn" Content="Play!" Click="Button_Click_1"/>
+
+                        <sync:ComboBoxAdv x:Name="DSPlayWavetype">
+                            <sync:ComboBoxItemAdv Content="Sine" IsSelected="True"/>
+                            <sync:ComboBoxItemAdv Content="Sawtooth"/>
+                            <sync:ComboBoxItemAdv Content="Triangle" />
+                            <sync:ComboBoxItemAdv Content="Square"/>
+                        </sync:ComboBoxAdv>
+                        <TextBlock Text="Frequency: " VerticalAlignment="Center"/>
+                        <TextBox x:Name="FrequencyTxtBox" VerticalAlignment="Center" Text="20"/>
+                    </StackPanel>
+                    
+                    
+                </Grid>
+
+            </ContentControl>
+
 
         </sync:DockingManager>
 
+
+        <!--Bottom Footer-->
 
         <Grid Grid.Row="3" Background="#424242">
 

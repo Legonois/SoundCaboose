@@ -17,6 +17,13 @@ using Syncfusion;
 using Syncfusion.Windows.Tools.Controls;
 using Syncfusion.SfSkinManager;
 using Syncfusion.Windows.PropertyGrid;
+using SoundCabooseWPFVersion.code;
+using SoundCabooseWPFVersion.CustomControls;
+using NAudio;
+using NAudio.Wave;
+using NAudio.Utils;
+using NAudio.Wave.SampleProviders;
+using System.Threading;
 
 namespace SoundCabooseWPFVersion
 {
@@ -62,6 +69,10 @@ namespace SoundCabooseWPFVersion
             //dockingManager.Children.Add(StartPage);
 
             //this.Content = dockingManager;
+            Control soundEditor = new CustomControls.SoundEditor();
+
+            soundEditor.BeginInit();
+            soundEditor.EndInit();
         }
 
         private void Grid_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -114,6 +125,34 @@ namespace SoundCabooseWPFVersion
             MainDockingManager.SaveDockState("C:/Users/wesle/Downloads/me.xaml");
         }
 
+        private async void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+            //DSPlayWavetype.
+            int Frequency = int.Parse(FrequencyTxtBox.Text);
+
+            string WaveType = DSPlayWavetype.Text;
+
+            string FullType = "SignalGeneratorType." + WaveType;
+
+            ISampleProvider? sine20Seconds = new SignalGenerator()
+            {
+                Gain = 0.05,
+                Frequency = Frequency,
+                Type = SignalGeneratorType.Sin
+            }
+            .Take(TimeSpan.FromSeconds(1.5));
+            using (WaveOutEvent? wo = new WaveOutEvent())
+            {
+                wo.Init(sine20Seconds);
+                wo.Play();
+                while (wo.PlaybackState == PlaybackState.Playing)
+                {
+                    await Task.Delay(500);
+                }
+            }
+        }
+
 
         //    dockingManager2.PersistState = true;
         //    }
@@ -125,9 +164,9 @@ namespace SoundCabooseWPFVersion
         //    dockingManager2.SaveDockState("C:/Users/wesle/Downloads/me.xaml");
         //}
 
-       
 
-        
+
+
     }
 
     public class Employee
