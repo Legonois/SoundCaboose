@@ -32,15 +32,13 @@ namespace SoundCabooseWPFVersion
     /// </summary>
     public partial class MainWindow : Window
     {
-        private int iClicked;
-
         public MainWindow()
         {
             InitializeComponent();
             string style = "MaterialDark";
-            SkinHelper styleInstance = null;
+            SkinHelper? styleInstance = null;
             var skinHelpterStr = "Syncfusion.Themes." + style + ".WPF." + style + "SkinHelper, Syncfusion.Themes." + style + ".WPF";
-            Type skinHelpterType = Type.GetType(skinHelpterStr);
+            var skinHelpterType = Type.GetType(skinHelpterStr);
             if (skinHelpterType != null)
                 styleInstance = Activator.CreateInstance(skinHelpterType) as SkinHelper;
             if (styleInstance != null)
@@ -87,7 +85,7 @@ namespace SoundCabooseWPFVersion
             Button? b = sender as Button;
             Close();
 
-            
+
         }
 
         private void MaximizeBtn_Click(object sender, RoutedEventArgs e)
@@ -97,12 +95,12 @@ namespace SoundCabooseWPFVersion
 
             
 
-            if (WindowState == WindowState.Normal)
+            if (WindowState == WindowState.Normal && maximizeBtn != null)
             {
                 maximizeBtn.Content = "";
                 WindowState = WindowState.Maximized;
             }
-            else
+            else if(maximizeBtn != null)
             {
                 maximizeBtn.Content = "";
                 WindowState = WindowState.Normal;
@@ -128,30 +126,46 @@ namespace SoundCabooseWPFVersion
         private async void Button_Click_1(object sender, RoutedEventArgs e)
         {
 
-            //DSPlayWavetype.
-            int Frequency = int.Parse(FrequencyTxtBox.Text);
+            ////DSPlayWavetype.
+            //int Frequency = int.Parse(FrequencyTxtBox.Text);
 
-            string WaveType = DSPlayWavetype.Text;
+            //string WaveType = DSPlayWavetype.Text;
 
-            string FullType = "SignalGeneratorType." + WaveType;
+            //string FullType = "SignalGeneratorType." + WaveType;
 
-            ISampleProvider? sine20Seconds = new SignalGenerator()
-            {
-                Gain = 0.05,
-                Frequency = Frequency,
-                Type = SignalGeneratorType.Sin
-            }
-            .Take(TimeSpan.FromSeconds(1.5));
-            using (WaveOutEvent? wo = new WaveOutEvent())
-            {
-                wo.Init(sine20Seconds);
-                wo.Play();
-                while (wo.PlaybackState == PlaybackState.Playing)
-                {
-                    await Task.Delay(500);
-                }
-            }
+            //ISampleProvider? sine20Seconds = new SignalGenerator()
+            //{
+            //    Gain = 0.05,
+            //    Frequency = Frequency,
+            //    Type = SignalGeneratorType.Sin
+            //}
+            //.Take(TimeSpan.FromSeconds(1.5));
+            //using (WaveOutEvent? wo = new WaveOutEvent())
+            //{
+            //    wo.Init(sine20Seconds);
+            //    wo.Play();
+            //    while (wo.PlaybackState == PlaybackState.Playing)
+            //    {
+            //        await Task.Delay(500);
+            //    }
+            //}
+
+            float volume = (float)(VolumeSlider.Value / 100);
+
+            float frequency = float.Parse(FrequencyTxtBox.Text);
+
+            SoundBackend.StartStopSineWave(frequency, volume, 44100, 1, (SoundBackend.WaveType)DSPlayWavetype.SelectedIndex);
         }
+    }
+
+        
+
+
+
+
+
+
+
 
 
         //    dockingManager2.PersistState = true;
@@ -167,7 +181,7 @@ namespace SoundCabooseWPFVersion
 
 
 
-    }
+
 
     public class Employee
     {
@@ -189,4 +203,5 @@ namespace SoundCabooseWPFVersion
             };
         }
     }
+    
 }

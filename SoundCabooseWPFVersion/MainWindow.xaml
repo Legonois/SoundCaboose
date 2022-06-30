@@ -230,11 +230,13 @@
                         <sync:ComboBoxAdv x:Name="DSPlayWavetype">
                             <sync:ComboBoxItemAdv Content="Sine" IsSelected="True"/>
                             <sync:ComboBoxItemAdv Content="Sawtooth"/>
-                            <sync:ComboBoxItemAdv Content="Triangle" />
-                            <sync:ComboBoxItemAdv Content="Square"/>
+                            <sync:ComboBoxItemAdv Content="Square" />
+                            <sync:ComboBoxItemAdv Content="Triangle"/>
+                            <sync:ComboBoxItemAdv Content="Noise"/>
                         </sync:ComboBoxAdv>
                         <TextBlock Text="Frequency: " VerticalAlignment="Center"/>
                         <TextBox x:Name="FrequencyTxtBox" VerticalAlignment="Center" Text="20"/>
+                        <sync:SfRangeSlider x:Name="VolumeSlider" Maximum="100" Minimum="0" Width="100" Orientation="Horizontal" Margin="12" Value="5"/>
                     </StackPanel>
                     
                     
