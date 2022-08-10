@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
+//using System.Windows.Shapes;
 using System.Diagnostics;
 using Syncfusion;
 using Syncfusion.Windows.Tools.Controls;
@@ -24,6 +24,8 @@ using NAudio.Wave;
 using NAudio.Utils;
 using NAudio.Wave.SampleProviders;
 using System.Threading;
+using System.DirectoryServices;
+using System.IO;
 
 namespace SoundCabooseWPFVersion
 {
@@ -115,12 +117,16 @@ namespace SoundCabooseWPFVersion
 
         private void LoadBtn_Click(object sender, RoutedEventArgs e)
         {
-            MainDockingManager.LoadDockState("C:/Users/wesle/Downloads/me.xaml");
+            string dockSavePath = Path.Combine(Appdata.FolderPath, "me.xaml");
+
+            MainDockingManager.LoadDockState(dockSavePath);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainDockingManager.SaveDockState("C:/Users/wesle/Downloads/me.xaml");
+            string dockSavePath = Path.Combine(Appdata.FolderPath, "me.xaml");
+
+            MainDockingManager.SaveDockState(dockSavePath);
         }
 
         private async void Button_Click_1(object sender, RoutedEventArgs e)
@@ -156,11 +162,36 @@ namespace SoundCabooseWPFVersion
 
             SoundBackend.StartStopSineWave(frequency, volume, 44100, 1, (SoundBackend.WaveType)DSPlayWavetype.SelectedIndex);
         }
+
+        private void CreateUserDataFolder_Click(object sender, RoutedEventArgs e)
+        {
+            Appdata.CreateUserDataFolder();
+        }
     }
 
-        
 
 
+    public class Appdata
+    {
+        public static string FolderPath = string.Empty;
+
+        public static void CreateUserDataFolder()
+        {
+            // The folder for the roaming current user 
+            string folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+
+            // Combine the base folder with your specific folder....
+            string specificFolder = System.IO.Path.Combine(folder, "SoundCaboose");
+
+            // CreateDirectory will check if every folder in path exists and, if not, create them.
+            // If all folders exist then CreateDirectory will do nothing.
+            Directory.CreateDirectory(specificFolder);
+
+            // Set FolderPath
+            FolderPath = specificFolder;
+
+        }
+    }
 
 
 

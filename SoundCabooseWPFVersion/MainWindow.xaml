@@ -1,4 +1,4 @@
-﻿<Window x:Class="SoundCabooseWPFVersion.MainWindow"
+﻿ <Window x:Class="SoundCabooseWPFVersion.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -166,11 +166,14 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
                     <Button Grid.Row="0" x:Name="SaveBtn" Content="SAVE" Click="Button_Click" />
 
                     <Button Grid.Row="1" x:Name="LoadBtn" Content="AHhahhahah load" Click="LoadBtn_Click"/>
+
+                    <Button Grid.Row="2" x:Name="CreateUserDataFolder" Content="Create User Data Folder" Click="CreateUserDataFolder_Click"/>
 
                 </Grid>
 

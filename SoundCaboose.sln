@@ -5,7 +5,11 @@ VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoundCabooseWPFVersion", "SoundCabooseWPFVersion\SoundCabooseWPFVersion.csproj", "{CC57748F-7048-45BC-A859-FA72202F2557}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebugWPF", "DebugWPF\DebugWPF.csproj", "{5B59DB47-AF19-4EF9-B040-F4F73BDFFE23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SCDebugWPF", "DebugWPF\SCDebugWPF.csproj", "{5B59DB47-AF19-4EF9-B040-F4F73BDFFE23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundCabooseMAUIVersion", "SoundCabooseMAUIVersion\SoundCabooseMAUIVersion.csproj", "{CD74E2B0-93A1-498A-AD0D-697C8F0D9152}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundCabooseCLI", "SoundCabooseCLI\SoundCabooseCLI.csproj", "{80451955-FD35-4FB3-A534-B999BE61EE83}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +45,36 @@ Global
 		{5B59DB47-AF19-4EF9-B040-F4F73BDFFE23}.Release|x64.Build.0 = Release|Any CPU
 		{5B59DB47-AF19-4EF9-B040-F4F73BDFFE23}.Release|x86.ActiveCfg = Release|Any CPU
 		{5B59DB47-AF19-4EF9-B040-F4F73BDFFE23}.Release|x86.Build.0 = Release|Any CPU
+		{CD74E2B0-93A1-498A-AD0D-697C8F0D9152}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD74E2B0-93A1-498A-AD0D-697C8F0D9152}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD74E2B0-93A1-498A-AD0D-697C8F0D9152}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{CD74E2B0-93A1-498A-AD0D-697C8F0D9152}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CD74E2B0-93A1-498A-AD0D-697C8F0D9152}.Debug|x64.Build.0 = Debug|Any CPU
+		{CD74E2B0-93A1-498A-AD0D-697C8F0D9152}.Debug|x64.Deploy.0 = Debug|Any CPU
+		{CD74E2B0-93A1-498A-AD0D-697C8F0D9152}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CD74E2B0-93A1-498A-AD0D-697C8F0D9152}.Debug|x86.Build.0 = Debug|Any CPU
+		{CD74E2B0-93A1-498A-AD0D-697C8F0D9152}.Debug|x86.Deploy.0 = Debug|Any CPU
+		{CD74E2B0-93A1-498A-AD0D-697C8F0D9152}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD74E2B0-93A1-498A-AD0D-697C8F0D9152}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD74E2B0-93A1-498A-AD0D-697C8F0D9152}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{CD74E2B0-93A1-498A-AD0D-697C8F0D9152}.Release|x64.ActiveCfg = Release|Any CPU
+		{CD74E2B0-93A1-498A-AD0D-697C8F0D9152}.Release|x64.Build.0 = Release|Any CPU
+		{CD74E2B0-93A1-498A-AD0D-697C8F0D9152}.Release|x64.Deploy.0 = Release|Any CPU
+		{CD74E2B0-93A1-498A-AD0D-697C8F0D9152}.Release|x86.ActiveCfg = Release|Any CPU
+		{CD74E2B0-93A1-498A-AD0D-697C8F0D9152}.Release|x86.Build.0 = Release|Any CPU
+		{CD74E2B0-93A1-498A-AD0D-697C8F0D9152}.Release|x86.Deploy.0 = Release|Any CPU
+		{80451955-FD35-4FB3-A534-B999BE61EE83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80451955-FD35-4FB3-A534-B999BE61EE83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80451955-FD35-4FB3-A534-B999BE61EE83}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{80451955-FD35-4FB3-A534-B999BE61EE83}.Debug|x64.Build.0 = Debug|Any CPU
+		{80451955-FD35-4FB3-A534-B999BE61EE83}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{80451955-FD35-4FB3-A534-B999BE61EE83}.Debug|x86.Build.0 = Debug|Any CPU
+		{80451955-FD35-4FB3-A534-B999BE61EE83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80451955-FD35-4FB3-A534-B999BE61EE83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80451955-FD35-4FB3-A534-B999BE61EE83}.Release|x64.ActiveCfg = Release|Any CPU
+		{80451955-FD35-4FB3-A534-B999BE61EE83}.Release|x64.Build.0 = Release|Any CPU
+		{80451955-FD35-4FB3-A534-B999BE61EE83}.Release|x86.ActiveCfg = Release|Any CPU
+		{80451955-FD35-4FB3-A534-B999BE61EE83}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
