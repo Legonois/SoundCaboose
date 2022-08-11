@@ -1,4 +1,5 @@
 ﻿using System;
+using NAudio;
 
 namespace SoundCabooseCLI // Note: actual namespace depends on the project name.
 {
@@ -7,6 +8,16 @@ namespace SoundCabooseCLI // Note: actual namespace depends on the project name.
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+
+            
         }
     }
+
+    class SoundCaboose
+    {
+        
+
+
+    }
+
 }

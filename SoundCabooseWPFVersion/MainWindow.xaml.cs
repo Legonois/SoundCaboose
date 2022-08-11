@@ -26,6 +26,8 @@ using NAudio.Wave.SampleProviders;
 using System.Threading;
 using System.DirectoryServices;
 using System.IO;
+using Syncfusion.Windows.Shared;
+using Syncfusion.Themes.MaterialDark.WPF;
 
 namespace SoundCabooseWPFVersion
 {
@@ -37,17 +39,29 @@ namespace SoundCabooseWPFVersion
         public MainWindow()
         {
             InitializeComponent();
+
+            MaterialDarkThemeSettings materialDarkThemeSettings = new MaterialDarkThemeSettings();
+            materialDarkThemeSettings.PrimaryBackground = new SolidColorBrush(Colors.Red);
+            materialDarkThemeSettings.PrimaryForeground = new SolidColorBrush(Colors.Yellow);
+            materialDarkThemeSettings.FontFamily = new FontFamily("Arial");
+            materialDarkThemeSettings.BodyFontSize = 12;
+            materialDarkThemeSettings.SubTitleFontSize = 14;
             string style = "MaterialDark";
-            SkinHelper? styleInstance = null;
-            var skinHelpterStr = "Syncfusion.Themes." + style + ".WPF." + style + "SkinHelper, Syncfusion.Themes." + style + ".WPF";
-            var skinHelpterType = Type.GetType(skinHelpterStr);
-            if (skinHelpterType != null)
-                styleInstance = Activator.CreateInstance(skinHelpterType) as SkinHelper;
-            if (styleInstance != null)
-            {
-                SfSkinManager.RegisterTheme(style, styleInstance);
-            }
-            SfSkinManager.SetTheme(this, new Theme(style));
+            SfSkinManager.RegisterThemeSettings("MaterialDark", materialDarkThemeSettings);
+
+            SfSkinManager.SetTheme(Gaminnnn, new Theme() { ThemeName = "MaterialDark" });
+
+            //string style = "MaterialDark";
+            //SkinHelper? styleInstance = null;
+            //string skinHelpterStr = "Syncfusion.Themes." + style + ".WPF." + style + "SkinHelper, Syncfusion.Themes." + style + ".WPF";
+            //Type? skinHelpterType = Type.GetType(skinHelpterStr);
+            //if (skinHelpterType != null)
+            //    styleInstance = Activator.CreateInstance(skinHelpterType) as SkinHelper;
+            //if (styleInstance != null)
+            //{
+            //    SfSkinManager.RegisterTheme(style, styleInstance);
+            //}
+            //SfSkinManager.SetTheme(this, new Theme(style));
 
             // old style MaterialDark
             // new style MaterialDarkRoyalBlue

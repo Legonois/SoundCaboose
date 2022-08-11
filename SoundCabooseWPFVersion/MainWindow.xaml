@@ -19,7 +19,7 @@
         <WindowChrome CaptionHeight="0"/>
     </WindowChrome.WindowChrome>
 
-    <Grid Background="White">
+    <Grid Background="White" x:Name="Gaminnnn">
         <Grid.RowDefinitions>
             <RowDefinition Height="32"/>
             <RowDefinition Height="32"/>

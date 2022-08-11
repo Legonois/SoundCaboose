@@ -29,25 +29,25 @@
     <AppXManifest Include="C:\Users\wesle\OneDrive\Documents\GitHub\SoundCaboose\SoundCabooseMAUIVersion\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-08-10T17:35:13.942</Modified>
+      <Modified>2022-08-11T03:23:07.116</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\wesle\OneDrive\Documents\GitHub\SoundCaboose\SoundCabooseMAUIVersion\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2022-08-10T01:12:40.520</Modified>
+      <Modified>2022-08-11T03:23:06.569</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\wesle\OneDrive\Documents\GitHub\SoundCaboose\SoundCabooseMAUIVersion\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\SoundCabooseMAUIVersion.runtimeconfig.json">
       <PackagePath>SoundCabooseMAUIVersion.runtimeconfig.json</PackagePath>
-      <Modified>2022-08-10T01:12:40.049</Modified>
+      <Modified>2022-08-11T03:23:06.488</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\wesle\OneDrive\Documents\GitHub\SoundCaboose\SoundCabooseMAUIVersion\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\SoundCabooseMAUIVersion.dll">
       <PackagePath>SoundCabooseMAUIVersion.dll</PackagePath>
-      <Modified>2022-08-10T17:35:12.182</Modified>
+      <Modified>2022-08-11T03:23:05.231</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\wesle\OneDrive\Documents\GitHub\SoundCaboose\SoundCabooseMAUIVersion\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>SoundCabooseMAUIVersion.exe</PackagePath>
-      <Modified>2022-08-10T17:35:12.192</Modified>
+      <Modified>2022-08-11T03:23:05.241</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\wesle\.nuget\packages\microsoft.netcore.app.runtime.win-x64\6.0.8\runtimes\win-x64\lib\net6.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -1063,7 +1063,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\wesle\OneDrive\Documents\GitHub\SoundCaboose\SoundCabooseMAUIVersion\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\SoundCabooseMAUIVersion.deps.json">
       <PackagePath>SoundCabooseMAUIVersion.deps.json</PackagePath>
-      <Modified>2022-08-10T17:35:13.720</Modified>
+      <Modified>2022-08-11T03:23:06.905</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files\dotnet\packs\Microsoft.Maui.Controls.Ref.win\6.0.486\ref\net6.0-windows10.0.19041\Microsoft.Maui.Controls.Compatibility.pri">
       <PackagePath>Microsoft.Maui.Controls.Compatibility.pri</PackagePath>

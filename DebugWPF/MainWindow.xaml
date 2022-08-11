@@ -13,42 +13,14 @@
 
 
     <Grid Grid.Row="1">
-        <syncfusion:DockingManager 
-            x:Name="dockingManager2" 
-            PersistState="True"
-            UseDocumentContainer="True" 
-            EnableMouseHoverBackground="False" Loaded="CoolDockingLoad"
-            >
-            <!--Output docking window-->
-            <ContentControl
-                x:Name="Output"
-                syncfusion:DockingManager.Header="Output"
-                syncfusion:DockingManager.SideInDockedMode="Left"
-                syncfusion:DockingManager.DesiredWidthInDockedMode="300" />
 
-            <!-- Toolbox docking window -->
-            <ContentControl
-                x:Name="Toolbox"
-                syncfusion:DockingManager.Header="Toolbox"
-                syncfusion:DockingManager.State="Dock"
-                syncfusion:DockingManager.SideInDockedMode="Top"
-                syncfusion:DockingManager.DesiredWidthInDockedMode="180" 
-                />
-
-            <!-- SolutionExplorer docking window -->
-            <ContentControl 
-                x:Name="SolutionExplorer"
-                syncfusion:DockingManager.Header="Solution Explorer"
-                syncfusion:DockingManager.SideInDockedMode="Bottom">
-
-                <Grid Height="auto">
-                    
-                </Grid>
-                
-            </ContentControl>
-
-            <!-- Tabbed document window -->
-
-        </syncfusion:DockingManager>
+        <DockPanel>
+            <Button DockPanel.Dock="Left">Left</Button>
+            <Button DockPanel.Dock="Top">Top</Button>
+            <Button DockPanel.Dock="Right">Right</Button>
+            <Button DockPanel.Dock="Bottom">Bottom</Button>
+            <Button>Center</Button>
+        </DockPanel>
+        
     </Grid>
 </Window>

@@ -26,27 +26,7 @@ namespace DebugWPF
         public MainWindow()
         {
             InitializeComponent();
-
-            string style = "MaterialDark";
-            SkinHelper styleInstance = null;
-            var skinHelpterStr = "Syncfusion.Themes." + style + ".WPF." + style + "SkinHelper, Syncfusion.Themes." + style + ".WPF";
-            Type skinHelpterType = Type.GetType(skinHelpterStr);
-            if (skinHelpterType != null)
-                styleInstance = Activator.CreateInstance(skinHelpterType) as SkinHelper;
-            if (styleInstance != null)
-            {
-                SfSkinManager.RegisterTheme(style, styleInstance);
-            }
-            SfSkinManager.SetTheme(this, new Theme(style));
-
-            dockingManager2.PersistState = true;
-        }
-
-        private void CoolDockingLoad(object sender, RoutedEventArgs e)
-        {
-            dockingManager2.LoadDockState("C:/Users/wesle/Downloads/me.xaml");
-
-            dockingManager2.SaveDockState("C:/Users/wesle/Downloads/me.xaml");
         }
     }
 }
+
