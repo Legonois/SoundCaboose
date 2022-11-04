@@ -7,7 +7,7 @@
         xmlns:syncfusionskin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
         xmlns:local="clr-namespace:SoundCabooseWPFVersion"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1500"
+        Title="SoundCaboose" Height="800" Width="1500"
         MinHeight="400" MaxHeight="6000"
         MinWidth="750" MaxWidth="11250"
         WindowStyle="None"
