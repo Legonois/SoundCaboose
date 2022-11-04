@@ -76,6 +76,21 @@
         </Style.Triggers>
     </Style>
 
+
+    <Style TargetType="Grid" x:Key="topbar">
+
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#6F2BBA" Offset="0"/>
+                    <GradientStop Color="#D22354" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        
+        
+    </Style>
+
     
     
 

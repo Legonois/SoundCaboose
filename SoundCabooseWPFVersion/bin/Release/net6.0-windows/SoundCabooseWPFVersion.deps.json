@@ -8,8 +8,14 @@
     ".NETCoreApp,Version=v6.0": {
       "SoundCabooseWPFVersion/1.0.0": {
         "dependencies": {
+          "NAudio": "2.1.0",
           "Newtonsoft.Json": "13.0.1",
+          "Syncfusion.PropertyGrid.WPF": "20.1.0.61",
+          "Syncfusion.SfChart.WPF": "20.1.0.61",
+          "Syncfusion.SfGrid.WPF": "20.1.0.61",
+          "Syncfusion.SfInput.WPF": "20.1.0.61",
           "Syncfusion.SfSkinManager.WPF": "20.1.0.61",
+          "Syncfusion.Shared.Base": "20.1.0.61",
           "Syncfusion.Shared.WPF": "20.1.0.61",
           "Syncfusion.Tools.WPF": "20.1.0.61",
           "Syncfusion.Themes.MaterialDark.WPF": "20.1500.0.47"
@@ -18,11 +24,107 @@
           "SoundCabooseWPFVersion.dll": {}
         }
       },
+      "Microsoft.NETCore.Platforms/3.1.0": {},
+      "Microsoft.Win32.Registry/4.7.0": {
+        "dependencies": {
+          "System.Security.AccessControl": "4.7.0",
+          "System.Security.Principal.Windows": "4.7.0"
+        }
+      },
+      "NAudio/2.1.0": {
+        "dependencies": {
+          "NAudio.Asio": "2.1.0",
+          "NAudio.Core": "2.1.0",
+          "NAudio.Midi": "2.1.0",
+          "NAudio.Wasapi": "2.1.0",
+          "NAudio.WinForms": "2.1.0",
+          "NAudio.WinMM": "2.1.0"
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/NAudio.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
+          }
+        }
+      },
+      "NAudio.Asio/2.1.0": {
+        "dependencies": {
+          "Microsoft.Win32.Registry": "4.7.0",
+          "NAudio.Core": "2.1.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Asio.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
+          }
+        }
+      },
+      "NAudio.Core/2.1.0": {
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Core.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
+          }
+        }
+      },
+      "NAudio.Midi/2.1.0": {
+        "dependencies": {
+          "NAudio.Core": "2.1.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Midi.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
+          }
+        }
+      },
+      "NAudio.Wasapi/2.1.0": {
+        "dependencies": {
+          "NAudio.Core": "2.1.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Wasapi.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
+          }
+        }
+      },
+      "NAudio.WinForms/2.1.0": {
+        "dependencies": {
+          "NAudio.WinMM": "2.1.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/NAudio.WinForms.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
+          }
+        }
+      },
+      "NAudio.WinMM/2.1.0": {
+        "dependencies": {
+          "Microsoft.Win32.Registry": "4.7.0",
+          "NAudio.Core": "2.1.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.WinMM.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
+          }
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
             "assemblyVersion": "13.0.0.0",
             "fileVersion": "13.0.1.25517"
+          }
+        }
+      },
+      "Syncfusion.Data.WPF/20.1.0.61": {
+        "runtime": {
+          "lib/net5.0-windows7.0/Syncfusion.Data.WPF.dll": {
+            "assemblyVersion": "20.1500.0.61",
+            "fileVersion": "20.1500.0.61"
           }
         }
       },
@@ -34,12 +136,73 @@
           }
         }
       },
+      "Syncfusion.PropertyGrid.WPF/20.1.0.61": {
+        "dependencies": {
+          "Syncfusion.Licensing": "20.1.0.61",
+          "Syncfusion.SfInput.WPF": "20.1.0.61",
+          "Syncfusion.Shared.WPF": "20.1.0.61",
+          "Syncfusion.Tools.WPF": "20.1.0.61"
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Syncfusion.PropertyGrid.WPF.dll": {
+            "assemblyVersion": "20.1500.0.61",
+            "fileVersion": "20.1500.0.61"
+          }
+        }
+      },
+      "Syncfusion.SfChart.WPF/20.1.0.61": {
+        "dependencies": {
+          "Syncfusion.Licensing": "20.1.0.61"
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Syncfusion.SfChart.WPF.dll": {
+            "assemblyVersion": "20.1500.0.61",
+            "fileVersion": "20.1500.0.61"
+          }
+        }
+      },
+      "Syncfusion.SfGrid.WPF/20.1.0.61": {
+        "dependencies": {
+          "Syncfusion.Data.WPF": "20.1.0.61",
+          "Syncfusion.Licensing": "20.1.0.61",
+          "Syncfusion.Shared.WPF": "20.1.0.61"
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Syncfusion.SfGrid.WPF.dll": {
+            "assemblyVersion": "20.1500.0.61",
+            "fileVersion": "20.1500.0.61"
+          }
+        }
+      },
+      "Syncfusion.SfInput.WPF/20.1.0.61": {
+        "dependencies": {
+          "Syncfusion.Licensing": "20.1.0.61",
+          "Syncfusion.Shared.WPF": "20.1.0.61"
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Syncfusion.SfInput.WPF.dll": {
+            "assemblyVersion": "20.1500.0.61",
+            "fileVersion": "20.1500.0.61"
+          }
+        }
+      },
       "Syncfusion.SfSkinManager.WPF/20.1.0.61": {
         "dependencies": {
           "Syncfusion.Licensing": "20.1.0.61"
         },
         "runtime": {
           "lib/net5.0-windows7.0/Syncfusion.SfSkinManager.WPF.dll": {
+            "assemblyVersion": "20.1500.0.61",
+            "fileVersion": "20.1500.0.61"
+          }
+        }
+      },
+      "Syncfusion.Shared.Base/20.1.0.61": {
+        "dependencies": {
+          "Syncfusion.Licensing": "20.1.0.61"
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Syncfusion.Shared.Base.dll": {
             "assemblyVersion": "20.1500.0.61",
             "fileVersion": "20.1500.0.61"
           }
@@ -68,6 +231,13 @@
           }
         }
       },
+      "System.Security.AccessControl/4.7.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "3.1.0",
+          "System.Security.Principal.Windows": "4.7.0"
+        }
+      },
+      "System.Security.Principal.Windows/4.7.0": {},
       "Syncfusion.Themes.MaterialDark.WPF/20.1500.0.47": {
         "runtime": {
           "Syncfusion.Themes.MaterialDark.WPF.dll": {
@@ -84,12 +254,82 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Microsoft.NETCore.Platforms/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-z7aeg8oHln2CuNulfhiLYxCVMPEwBl3rzicjvIX+4sUuCwvXw5oXQEtbiU2c0z4qYL5L3Kmx0mMA/+t/SbY67w==",
+      "path": "microsoft.netcore.platforms/3.1.0",
+      "hashPath": "microsoft.netcore.platforms.3.1.0.nupkg.sha512"
+    },
+    "Microsoft.Win32.Registry/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KSrRMb5vNi0CWSGG1++id2ZOs/1QhRqROt+qgbEAdQuGjGrFcl4AOl4/exGPUYz2wUnU42nvJqon1T3U0kPXLA==",
+      "path": "microsoft.win32.registry/4.7.0",
+      "hashPath": "microsoft.win32.registry.4.7.0.nupkg.sha512"
+    },
+    "NAudio/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iamDtIq4Tcq6BDEMatX7Wj6KI7rscECS72ZejjnL9RK8BgfrVRH2RlhlQVNxXNp9Up1eFESEiCILNBo7//Rr0g==",
+      "path": "naudio/2.1.0",
+      "hashPath": "naudio.2.1.0.nupkg.sha512"
+    },
+    "NAudio.Asio/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-YMXffgqPTsQIjmXYyzLrXSpQZzC7ZH49mmdXaPW3o/5S+AhFKZeOrwUA2fkvphQdGhryObbZnPAq+u8uABkH5A==",
+      "path": "naudio.asio/2.1.0",
+      "hashPath": "naudio.asio.2.1.0.nupkg.sha512"
+    },
+    "NAudio.Core/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0iowfmolibU4KxjaC/s7lox/BeDg76UVvXtCuCzRiNpylVndqsxXxp+bVWFrpv0KzQDIKLxZrnDmYENlAI0u9g==",
+      "path": "naudio.core/2.1.0",
+      "hashPath": "naudio.core.2.1.0.nupkg.sha512"
+    },
+    "NAudio.Midi/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-m2ZunnyZ1p7OoAMh1scHRVle+GiFuIRrzkcxZJREUFHje8O2hcMGya3ZAjD+dV2FTcrbqNQUc4kJy9LOTuydUw==",
+      "path": "naudio.midi/2.1.0",
+      "hashPath": "naudio.midi.2.1.0.nupkg.sha512"
+    },
+    "NAudio.Wasapi/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Zp/8l79aYQEu7/HfzXWVpqyIwRUPgsvCj/Qx+pR6ykJxvwjqOoUfMiEG9US1wW4d7PEzT5ZBIL+cp90t6HNNiw==",
+      "path": "naudio.wasapi/2.1.0",
+      "hashPath": "naudio.wasapi.2.1.0.nupkg.sha512"
+    },
+    "NAudio.WinForms/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-yoGCLidMVQmg66dNuEYusY1bttZJ5gxvufxRYFgxIw444dw4C70YsDgLeDugPd0rdwkSCQq5CtrVw6DSmxTxPA==",
+      "path": "naudio.winforms/2.1.0",
+      "hashPath": "naudio.winforms.2.1.0.nupkg.sha512"
+    },
+    "NAudio.WinMM/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lUU5C+XNzKhFUIEafA/nJpbtjksFtbUd033fs27KeHlOM0r6rQFF3l75dqxg+rWkGu81MfkBbYrNpH9p8qmtBA==",
+      "path": "naudio.winmm/2.1.0",
+      "hashPath": "naudio.winmm.2.1.0.nupkg.sha512"
+    },
     "Newtonsoft.Json/13.0.1": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
       "path": "newtonsoft.json/13.0.1",
       "hashPath": "newtonsoft.json.13.0.1.nupkg.sha512"
+    },
+    "Syncfusion.Data.WPF/20.1.0.61": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SLcxcXWGZSNkC6iRYccCNrHqMEWtg+XAnSZudOMwoqRcwgMQNIK3i0iwXQDqyZD3HAHf0Z9TaPcWz1x2zyALxg==",
+      "path": "syncfusion.data.wpf/20.1.0.61",
+      "hashPath": "syncfusion.data.wpf.20.1.0.61.nupkg.sha512"
     },
     "Syncfusion.Licensing/20.1.0.61": {
       "type": "package",
@@ -98,12 +338,47 @@
       "path": "syncfusion.licensing/20.1.0.61",
       "hashPath": "syncfusion.licensing.20.1.0.61.nupkg.sha512"
     },
+    "Syncfusion.PropertyGrid.WPF/20.1.0.61": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VejtfpnnsY6Cw2M7FIS+HVd7LLeVLOdP88b7qTz+IiHtCOXQVM/HKtitQC1CiTw9ZSMomeX5UW4OTLvOmAyFRA==",
+      "path": "syncfusion.propertygrid.wpf/20.1.0.61",
+      "hashPath": "syncfusion.propertygrid.wpf.20.1.0.61.nupkg.sha512"
+    },
+    "Syncfusion.SfChart.WPF/20.1.0.61": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pCP4+UJU9Y56GFFV1Iyw2fkvN8AlR84pZ+HxG1CFnxc15THreXSC3f4gV65oXSWBvMue6ywioMjHSF35dSShig==",
+      "path": "syncfusion.sfchart.wpf/20.1.0.61",
+      "hashPath": "syncfusion.sfchart.wpf.20.1.0.61.nupkg.sha512"
+    },
+    "Syncfusion.SfGrid.WPF/20.1.0.61": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-E/e+cq88eBTZ+s0fayMEnVZ2gwA2zhug4zaiJLW0sCW50C78DjjAokRUXC+lxxdLSEXWX5rwTeZodbDtggqBlw==",
+      "path": "syncfusion.sfgrid.wpf/20.1.0.61",
+      "hashPath": "syncfusion.sfgrid.wpf.20.1.0.61.nupkg.sha512"
+    },
+    "Syncfusion.SfInput.WPF/20.1.0.61": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MAbRGHOX5LRrIJlMBAGZDo0JPmzV3ZdOpm4IvuS67HxOXAqh7JPeoS93StnUer4v0JOXVZjiz1zIY02Q8CN2oA==",
+      "path": "syncfusion.sfinput.wpf/20.1.0.61",
+      "hashPath": "syncfusion.sfinput.wpf.20.1.0.61.nupkg.sha512"
+    },
     "Syncfusion.SfSkinManager.WPF/20.1.0.61": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-jjGUcan4pCjP6Kl4dn6Cd+QIBxYmfAJIPSdWgJeg6zxz9A0lFIivine2pF9WO6wvr4dAR+o+1KyMxhpjR5FNtw==",
       "path": "syncfusion.sfskinmanager.wpf/20.1.0.61",
       "hashPath": "syncfusion.sfskinmanager.wpf.20.1.0.61.nupkg.sha512"
+    },
+    "Syncfusion.Shared.Base/20.1.0.61": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BGl3ad2bveKKoITBwUd0cInrzFWh+DEO74TLKTAlbbB6kaSpXHlJ4a5Q5VXK+lDOHv/2ZWZfeV32q7U0qb57Dg==",
+      "path": "syncfusion.shared.base/20.1.0.61",
+      "hashPath": "syncfusion.shared.base.20.1.0.61.nupkg.sha512"
     },
     "Syncfusion.Shared.WPF/20.1.0.61": {
       "type": "package",
@@ -118,6 +393,20 @@
       "sha512": "sha512-aeh9jgxBQCk445pD1XvWWaCfgEBKKTvCV5yHUllytfi88d8Q1K9BAu5VVxFRlPzt59+AwfvYYZOTMyArqNNObA==",
       "path": "syncfusion.tools.wpf/20.1.0.61",
       "hashPath": "syncfusion.tools.wpf.20.1.0.61.nupkg.sha512"
+    },
+    "System.Security.AccessControl/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JECvTt5aFF3WT3gHpfofL2MNNP6v84sxtXxpqhLBCcDRzqsPBmHhQ6shv4DwwN2tRlzsUxtb3G9M3763rbXKDg==",
+      "path": "system.security.accesscontrol/4.7.0",
+      "hashPath": "system.security.accesscontrol.4.7.0.nupkg.sha512"
+    },
+    "System.Security.Principal.Windows/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ojD0PX0XhneCsUbAZVKdb7h/70vyYMDYs85lwEI+LngEONe/17A0cFaRFqZU+sOEidcVswYWikYOQ9PPfjlbtQ==",
+      "path": "system.security.principal.windows/4.7.0",
+      "hashPath": "system.security.principal.windows.4.7.0.nupkg.sha512"
     },
     "Syncfusion.Themes.MaterialDark.WPF/20.1500.0.47": {
       "type": "reference",

@@ -129,19 +129,19 @@ namespace SoundCabooseWPFVersion
             WindowState = WindowState.Minimized;
         }
 
-        private void LoadBtn_Click(object sender, RoutedEventArgs e)
-        {
-            string dockSavePath = Path.Combine(Appdata.FolderPath, "me.xaml");
+        //private void LoadBtn_Click(object sender, RoutedEventArgs e)
+        //{
+        //    string dockSavePath = Path.Combine(Appdata.FolderPath, "me.xaml");
 
-            MainDockingManager.LoadDockState(dockSavePath);
-        }
+        //    MainDockingManager.LoadDockState(dockSavePath);
+        //}
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            string dockSavePath = Path.Combine(Appdata.FolderPath, "me.xaml");
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
+        //    string dockSavePath = Path.Combine(Appdata.FolderPath, "me.xaml");
 
-            MainDockingManager.SaveDockState(dockSavePath);
-        }
+        //    MainDockingManager.SaveDockState(dockSavePath);
+        //}
 
         private async void Button_Click_1(object sender, RoutedEventArgs e)
         {
@@ -170,11 +170,11 @@ namespace SoundCabooseWPFVersion
             //    }
             //}
 
-            float volume = (float)(VolumeSlider.Value / 100);
+            //float volume = (float)(VolumeSlider.Value / 100);
 
-            float frequency = float.Parse(FrequencyTxtBox.Text);
+            //float frequency = float.Parse(FrequencyTxtBox.Text);
 
-            SoundBackend.StartStopSineWave(frequency, volume, 44100, 1, (SoundBackend.WaveType)DSPlayWavetype.SelectedIndex);
+            //SoundBackend.StartStopSineWave(frequency, volume, 44100, 1, (SoundBackend.WaveType)DSPlayWavetype.SelectedIndex);
         }
 
         private void CreateUserDataFolder_Click(object sender, RoutedEventArgs e)

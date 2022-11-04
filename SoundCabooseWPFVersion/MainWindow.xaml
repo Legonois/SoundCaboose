@@ -40,7 +40,7 @@
 
             <Grid Grid.Column="1" 
                   PreviewMouseLeftButtonDown="Grid_PreviewMouseLeftButtonDown" 
-                  Background="Transparent">
+                  Style="{DynamicResource topbar}">
 
                 <sync:MenuAdv VerticalAlignment="Center" HorizontalAlignment="Left" Background="Transparent" Foreground="White">
                     <sync:MenuItemAdv Header="File">
@@ -130,9 +130,9 @@
         
         <!--Docking Panels-->
 
-        <sync:DockingManager x:Name="MainDockingManager" HorizontalAlignment="Stretch" Grid.Row="2" UseDocumentContainer="True" UseNativeFloatWindow="True" VerticalAlignment="Stretch">
+        <!--<sync:DockingManager x:Name="MainDockingManager" HorizontalAlignment="Stretch" Grid.Row="2" UseDocumentContainer="True" UseNativeFloatWindow="True" VerticalAlignment="Stretch">
 
-            <!--Properties Window-->
+            --><!--Properties Window--><!--
             
             <ContentControl x:Name="Properties" 
                             sync:DockingManager.Header="Properties" 
@@ -152,7 +152,7 @@
 
             </ContentControl>
 
-            <!--DevTools Window-->
+            --><!--DevTools Window--><!--
 
             <ContentControl x:Name="DevTools"
                             sync:DockingManager.Header="Dev Tools"
@@ -179,7 +179,7 @@
 
             </ContentControl>
 
-            <!--SoundEditor Window-->
+            --><!--SoundEditor Window--><!--
 
             <ContentControl x:Name="SoundEditor" sync:DockingManager.SideInDockedMode="Left" sync:DockingManager.Header="SoundEditor">
 
@@ -202,7 +202,7 @@
 
             </ContentControl>
 
-            <!--NodeGraph Window-->
+            --><!--NodeGraph Window--><!--
 
             <ContentControl x:Name="NodeGraph" sync:DockingManager.SideInDockedMode="Left"
                             sync:DockingManager.DesiredHeightInDockedMode="400"
@@ -210,7 +210,7 @@
                 
             </ContentControl>
 
-            <!--Keyboard Window-->
+            --><!--Keyboard Window--><!--
 
             <ContentControl x:Name="Keyboard" 
                             sync:DockingManager.SideInDockedMode="Bottom"
@@ -218,7 +218,7 @@
                 
             </ContentControl>
             
-            <!--DevSynth-->
+            --><!--DevSynth--><!--
 
             <ContentControl x:Name="DevSynth" 
                             sync:DockingManager.SideInDockedMode="Bottom"
@@ -248,7 +248,7 @@
             </ContentControl>
 
 
-        </sync:DockingManager>
+        </sync:DockingManager>-->
 
 
         <!--Bottom Footer-->
