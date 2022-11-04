@@ -49,7 +49,7 @@ namespace SoundCabooseWPFVersion
             string style = "MaterialDark";
             SfSkinManager.RegisterThemeSettings("MaterialDark", materialDarkThemeSettings);
 
-            SfSkinManager.SetTheme(Gaminnnn, new Theme() { ThemeName = "MaterialDark" });
+            SfSkinManager.SetTheme(Main_view, new Theme() { ThemeName = "MaterialDark" });
 
             //string style = "MaterialDark";
             //SkinHelper? styleInstance = null;

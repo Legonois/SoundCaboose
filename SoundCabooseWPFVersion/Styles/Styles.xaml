@@ -9,7 +9,7 @@
         <Setter Property="FontFamily" Value="Segoe MDL2 Assets"/>
         <Setter Property="Width" Value="46"/>
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Foreground" Value="#B2B2B2"/>
+        <Setter Property="Foreground" Value="#F2F2F2"/>
         <Setter Property="FontSize" Value="10"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -27,10 +27,10 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#343436"/>
+                <Setter Property="Background" Value="#61C0C4C4"/>
             </Trigger>
             <Trigger Property="IsMouseOver" Value="False">
-                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="Background" Value="#61000000"/>
             </Trigger>
         </Style.Triggers>
     </Style>

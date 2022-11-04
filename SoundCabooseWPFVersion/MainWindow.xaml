@@ -19,15 +19,113 @@
         <WindowChrome CaptionHeight="0"/>
     </WindowChrome.WindowChrome>
 
-    <Grid Background="White" x:Name="Gaminnnn">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="32"/>
-            <RowDefinition Height="32"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="24"/>
-        </Grid.RowDefinitions>
+    <Grid Background="White" x:Name="Main_view">
 
-        <Grid Grid.Row="0" Background="#1A1A1D">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="32"/>
+                <RowDefinition Height="32"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="24"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Background="#1A1A1D" x:Name="Top_Bar">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+
+
+
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Foreground="White" VerticalAlignment="Center">Logo</TextBlock>
+
+                <Grid Grid.Column="1" 
+                  PreviewMouseLeftButtonDown="Grid_PreviewMouseLeftButtonDown" 
+                  Style="{DynamicResource topbar}">
+
+                    <sync:MenuAdv VerticalAlignment="Center" HorizontalAlignment="Left" Background="Transparent" Foreground="White">
+                        <sync:MenuItemAdv Header="File">
+                            <sync:MenuItemAdv Header="Pls"/>
+
+
+                        </sync:MenuItemAdv>
+
+                        <sync:MenuItemAdv Header="Edit">
+                            <sync:MenuItemAdv Header="Pls"/>
+
+
+                        </sync:MenuItemAdv>
+
+                        <sync:MenuItemAdv Header="View">
+                            <sync:MenuItemAdv Header="Pls"/>
+
+
+                        </sync:MenuItemAdv>
+
+                        <sync:MenuItemAdv Header="Dev">
+                            <sync:MenuItemAdv Header="Pls"/>
+
+                        </sync:MenuItemAdv>
+
+                    </sync:MenuAdv>
+
+                </Grid>
+
+
+            </Grid>
+
+            <DockPanel Grid.Row="1">
+
+                <ToolBarTray DockPanel.Dock="Top" Height="32">
+
+
+                    <ToolBar Style="{StaticResource TopToolBar}">
+
+                        <Menu ToolBar.OverflowMode="Never">
+                            <MenuItem Header="File"/>
+                            <MenuItem Header="Paste"/>
+
+
+                            <MenuItem Header="Paste"/>
+                        </Menu>
+
+
+
+                        <Separator />
+
+                        <Menu ToolBar.OverflowMode="Never">
+                            <MenuItem Header="File"/>
+                            <MenuItem Header="Paste"/>
+
+
+                            <MenuItem Header="Paste"/>
+                            <ComboBox>
+                                <ComboBoxItem>Lets</ComboBoxItem>
+                                <ComboBoxItem>Fuckin</ComboBoxItem>
+                                <ComboBoxItem>Gooo</ComboBoxItem>
+                                <ComboBoxItem IsSelected="True">Yo?</ComboBoxItem>
+                            </ComboBox>
+                        </Menu>
+
+
+                    </ToolBar>
+                </ToolBarTray>
+            </DockPanel>
+
+            <Grid Grid.Row="3" Background="#424242">
+
+            </Grid>
+
+        </Grid>
+
+
+
+
+
+
+
+        <Grid x:Name="WindowsBtns"  Height="32" VerticalAlignment="Top">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
@@ -35,40 +133,10 @@
                 <ColumnDefinition Width="46"/>
                 <ColumnDefinition Width="46"/>
                 <ColumnDefinition Width="46"/>
+
+
+
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" Foreground="White" VerticalAlignment="Center">Logo</TextBlock>
-
-            <Grid Grid.Column="1" 
-                  PreviewMouseLeftButtonDown="Grid_PreviewMouseLeftButtonDown" 
-                  Style="{DynamicResource topbar}">
-
-                <sync:MenuAdv VerticalAlignment="Center" HorizontalAlignment="Left" Background="Transparent" Foreground="White">
-                    <sync:MenuItemAdv Header="File">
-                        <sync:MenuItemAdv Header="Pls"/>
-
-
-                    </sync:MenuItemAdv>
-
-                    <sync:MenuItemAdv Header="Edit">
-                        <sync:MenuItemAdv Header="Pls"/>
-
-
-                    </sync:MenuItemAdv>
-
-                    <sync:MenuItemAdv Header="View">
-                        <sync:MenuItemAdv Header="Pls"/>
-
-
-                    </sync:MenuItemAdv>
-
-                    <sync:MenuItemAdv Header="Dev">
-                        <sync:MenuItemAdv Header="Pls"/>
-
-                    </sync:MenuItemAdv>
-
-                </sync:MenuAdv>
-
-            </Grid>
 
             <Button x:Name="MinimizeBtn"
                     Grid.Column="2" 
@@ -84,45 +152,10 @@
                     Grid.Column="4" 
                     Style="{DynamicResource WindowsButtons}"
                     Content="&#xE8BB;" Click="CloseBtn_Click"/>
+
         </Grid>
 
-        <DockPanel Grid.Row="1">
-
-            <ToolBarTray DockPanel.Dock="Top" Height="32">
-
-                
-                <ToolBar Style="{StaticResource TopToolBar}">
-
-                    <Menu ToolBar.OverflowMode="Never">
-                        <MenuItem Header="File"/>
-                        <MenuItem Header="Paste"/>
-                 
-                        
-                        <MenuItem Header="Paste"/>
-                    </Menu>
-                    
-                    
-
-                    <Separator />
-
-                    <Menu ToolBar.OverflowMode="Never">
-                        <MenuItem Header="File"/>
-                        <MenuItem Header="Paste"/>
-
-
-                        <MenuItem Header="Paste"/>
-                        <ComboBox>
-                            <ComboBoxItem>Lets</ComboBoxItem>
-                            <ComboBoxItem>Fuckin</ComboBoxItem>
-                            <ComboBoxItem>Gooo</ComboBoxItem>
-                            <ComboBoxItem IsSelected="True">Yo?</ComboBoxItem>
-                        </ComboBox>
-                    </Menu>
-
-                    
-                </ToolBar>
-            </ToolBarTray>
-        </DockPanel>
+        
         
         
         
@@ -253,9 +286,7 @@
 
         <!--Bottom Footer-->
 
-        <Grid Grid.Row="3" Background="#424242">
-
-        </Grid>
+        
     </Grid>
 </Window>
 
