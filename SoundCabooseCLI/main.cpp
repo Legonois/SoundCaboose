@@ -43,4 +43,10 @@ int main()
 {
 	init_apartment();
 	MainAsync().get();
+
+	Cablog* Log = new Cablog();
+
+	delete Log;
+	
+	Cablog::error("I hope it realy works guys!");
 }

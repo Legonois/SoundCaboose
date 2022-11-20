@@ -1,27 +1,25 @@
 #include "pch.h"
-#include "Cablog.h"
+#include "cablog.h"
 
-HANDLE Cablog::_hConsole;
+HANDLE cablog::_hConsole;
 
-Cablog::Cablog()
+cablog::cablog()
 {
 	_hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 }
-
-void Cablog::info(std::string input)
+void cablog::info(std::string input)
 {
-    //Sets to Info Color
     int k = 240;
     SetConsoleTextAttribute(_hConsole, k);
 
     std::cout << "Info:";
 
-    //Sets back to original color
     SetConsoleTextAttribute(_hConsole, 15);
 
     std::cout << " " << input << "\n";
+
 }
-void Cablog::warn(std::string input)
+void cablog::warn(std::string input)
 {
     int k = 224;
 
@@ -32,7 +30,7 @@ void Cablog::warn(std::string input)
 
     std::cout << " " << input << "\n";
 }
-void Cablog::error(std::string input)
+void cablog::error(std::string input)
 {
     int k = 79;
     SetConsoleTextAttribute(_hConsole, k);
@@ -43,7 +41,15 @@ void Cablog::error(std::string input)
 
     std::cout << " " << input << "\n";
 }
-void Cablog::empt()
+void cablog::empt()
 {
     std::cout << "\n";
+}
+void cablog::wait()
+{
+    empt();
+    warn("Debug has paused the App. Press 'Enter' to continue");
+    std::cin.ignore();
+    info("... Resuming");
+    empt();
 }

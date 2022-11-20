@@ -1,14 +1,14 @@
 #pragma once
-class Cablog
+class cablog
 {
-	private:
-
-	public:
+public:
 	static HANDLE _hConsole;
-	Cablog();
-	void static info(std::string input);
+	cablog();
+	static void info(std::string input);
 	void static warn(std::string input);
 	void static error(std::string input);
 	void static empt();
+	void static wait();
+
 };
 
