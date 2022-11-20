@@ -15,9 +15,9 @@
         ResizeMode="CanResizeWithGrip"
         WindowStartupLocation="CenterScreen">
 
-    <WindowChrome.WindowChrome>
+    <!--<WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="0"/>
-    </WindowChrome.WindowChrome>
+    </WindowChrome.WindowChrome>-->
 
     <Grid Background="White" x:Name="Main_view">
 

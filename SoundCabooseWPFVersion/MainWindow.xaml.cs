@@ -8,6 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -40,16 +41,18 @@ namespace SoundCabooseWPFVersion
         {
             InitializeComponent();
 
-            MaterialDarkThemeSettings materialDarkThemeSettings = new MaterialDarkThemeSettings();
-            materialDarkThemeSettings.PrimaryBackground = new SolidColorBrush(Colors.Red);
-            materialDarkThemeSettings.PrimaryForeground = new SolidColorBrush(Colors.Yellow);
-            materialDarkThemeSettings.FontFamily = new FontFamily("Arial");
-            materialDarkThemeSettings.BodyFontSize = 12;
-            materialDarkThemeSettings.SubTitleFontSize = 14;
-            string style = "MaterialDark";
-            SfSkinManager.RegisterThemeSettings("MaterialDark", materialDarkThemeSettings);
+            
 
-            SfSkinManager.SetTheme(Main_view, new Theme() { ThemeName = "MaterialDark" });
+            //MaterialDarkThemeSettings materialDarkThemeSettings = new MaterialDarkThemeSettings();
+            //materialDarkThemeSettings.PrimaryBackground = new SolidColorBrush(Colors.Red);
+            //materialDarkThemeSettings.PrimaryForeground = new SolidColorBrush(Colors.Yellow);
+            //materialDarkThemeSettings.FontFamily = new FontFamily("Arial");
+            //materialDarkThemeSettings.BodyFontSize = 12;
+            //materialDarkThemeSettings.SubTitleFontSize = 14;
+            //string style = "MaterialDark";
+            //SfSkinManager.RegisterThemeSettings("MaterialDark", materialDarkThemeSettings);
+
+            //SfSkinManager.SetTheme(Main_view, new Theme() { ThemeName = "MaterialDark" });
 
             //string style = "MaterialDark";
             //SkinHelper? styleInstance = null;
@@ -87,6 +90,32 @@ namespace SoundCabooseWPFVersion
 
             soundEditor.BeginInit();
             soundEditor.EndInit();
+        }
+
+        protected override void OnSourceInitialized(EventArgs e)
+        {
+            
+            base.OnSourceInitialized(e);
+            HwndSource source = PresentationSource.FromVisual(this) as HwndSource;
+            source.AddHook(WndProc);
+
+        }
+
+        private IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
+        {
+            // Handle messages...
+
+            Debug.WriteLine(msg);
+
+            if (msg == 20)
+            {
+                handled = true;
+                Debug.WriteLine("Message 20");
+
+
+            }
+
+            return IntPtr.Zero;
         }
 
         private void Grid_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)

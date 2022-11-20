@@ -1,0 +1,112 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "SCDebugWPF/1.0.0": {
+        "dependencies": {
+          "Syncfusion.SfSkinManager.WPF": "20.2.0.43",
+          "Syncfusion.Shared.WPF": "20.2.0.43",
+          "Syncfusion.Tools.WPF": "20.2.0.43",
+          "Syncfusion.Themes.MaterialDark.WPF": "20.1500.0.47"
+        },
+        "runtime": {
+          "SCDebugWPF.dll": {}
+        }
+      },
+      "Syncfusion.Licensing/20.2.0.43": {
+        "runtime": {
+          "lib/net6.0/Syncfusion.Licensing.dll": {
+            "assemblyVersion": "20.2.0.43",
+            "fileVersion": "20.2.0.43"
+          }
+        }
+      },
+      "Syncfusion.SfSkinManager.WPF/20.2.0.43": {
+        "dependencies": {
+          "Syncfusion.Licensing": "20.2.0.43"
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Syncfusion.SfSkinManager.WPF.dll": {
+            "assemblyVersion": "20.2500.0.43",
+            "fileVersion": "20.2500.0.43"
+          }
+        }
+      },
+      "Syncfusion.Shared.WPF/20.2.0.43": {
+        "dependencies": {
+          "Syncfusion.Licensing": "20.2.0.43"
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Syncfusion.Shared.WPF.dll": {
+            "assemblyVersion": "20.2500.0.43",
+            "fileVersion": "20.2500.0.43"
+          }
+        }
+      },
+      "Syncfusion.Tools.WPF/20.2.0.43": {
+        "dependencies": {
+          "Syncfusion.Licensing": "20.2.0.43",
+          "Syncfusion.Shared.WPF": "20.2.0.43"
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Syncfusion.Tools.WPF.dll": {
+            "assemblyVersion": "20.2500.0.43",
+            "fileVersion": "20.2500.0.43"
+          }
+        }
+      },
+      "Syncfusion.Themes.MaterialDark.WPF/20.1500.0.47": {
+        "runtime": {
+          "Syncfusion.Themes.MaterialDark.WPF.dll": {
+            "assemblyVersion": "20.1500.0.47",
+            "fileVersion": "20.1450.0.47"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SCDebugWPF/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Syncfusion.Licensing/20.2.0.43": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6gcTsltYyA9EK7/FhIESvYAA1O9PrJQrXK1vyx3b0dbGa5oii22IBc4rmFIZvomrK7EFQDpkGpEtCQfUw+PMkA==",
+      "path": "syncfusion.licensing/20.2.0.43",
+      "hashPath": "syncfusion.licensing.20.2.0.43.nupkg.sha512"
+    },
+    "Syncfusion.SfSkinManager.WPF/20.2.0.43": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-T+wX0CX88IKW/i5pV+w9K/SxqC6clHywJRC9s68FZvW5UWaiCIanq02nAYVeEcWXaJP/4yebiFSY7mMnMfnNMA==",
+      "path": "syncfusion.sfskinmanager.wpf/20.2.0.43",
+      "hashPath": "syncfusion.sfskinmanager.wpf.20.2.0.43.nupkg.sha512"
+    },
+    "Syncfusion.Shared.WPF/20.2.0.43": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-enUb+Ky6pi8bIJTspdo18pZgfeV7SBVV07XNEGimeUWDc29nSHc/3AKwdc85/pTT4sMEGFblxDJ1T8n93Idt5Q==",
+      "path": "syncfusion.shared.wpf/20.2.0.43",
+      "hashPath": "syncfusion.shared.wpf.20.2.0.43.nupkg.sha512"
+    },
+    "Syncfusion.Tools.WPF/20.2.0.43": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jkyyS3cKoILdmld51S81cDl95fynnhbYd/k9TUdv2s8g+NueviakVnV4kS7RbLXaq6sVFMKl7NWkZ6GGOM/hlA==",
+      "path": "syncfusion.tools.wpf/20.2.0.43",
+      "hashPath": "syncfusion.tools.wpf.20.2.0.43.nupkg.sha512"
+    },
+    "Syncfusion.Themes.MaterialDark.WPF/20.1500.0.47": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
