@@ -1,43 +1,43 @@
 #include "pch.h"
 #include "cablog.h"
 
-HANDLE cablog::_hConsole;
+HANDLE cablog::hConsole;
 
 cablog::cablog()
 {
-	_hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 }
 void cablog::info(std::string input)
 {
-    int k = 240;
-    SetConsoleTextAttribute(_hConsole, k);
+    WORD k = 240;
+    SetConsoleTextAttribute(hConsole, k);
 
     std::cout << "Info:";
 
-    SetConsoleTextAttribute(_hConsole, 15);
+    SetConsoleTextAttribute(hConsole, 15);
 
     std::cout << " " << input << "\n";
 
 }
 void cablog::warn(std::string input)
 {
-    int k = 224;
+    WORD k = 224;
 
-    SetConsoleTextAttribute(_hConsole, k);
+    SetConsoleTextAttribute(hConsole, k);
     std::cout << "Warn:";
 
-    SetConsoleTextAttribute(_hConsole, 15);
+    SetConsoleTextAttribute(hConsole, 15);
 
     std::cout << " " << input << "\n";
 }
 void cablog::error(std::string input)
 {
-    int k = 79;
-    SetConsoleTextAttribute(_hConsole, k);
+    WORD k = 79;
+    SetConsoleTextAttribute(hConsole, k);
 
     std::cout << "Error:";
 
-    SetConsoleTextAttribute(_hConsole, 15);
+    SetConsoleTextAttribute(hConsole, 15);
 
     std::cout << " " << input << "\n";
 }
@@ -52,4 +52,41 @@ void cablog::wait()
     std::cin.ignore();
     info("... Resuming");
     empt();
+}
+
+void cablog::job(std::string job, std::string input)
+{
+    info(job + " with input: " + "'" + input + "'");
+    //started audiograph with input: 'C:/your mother'
+}
+void cablog::created(std::string input)
+{
+    info("... Created " + input);
+    //Created AudioGraph
+}
+
+std::string cablog::input()
+{
+    std::string input;
+    std::getline(std::cin >> std::ws, input);
+
+    return input;
+}
+std::string cablog::input(std::string toinput)
+{
+    
+    WORD k = 240;
+    SetConsoleTextAttribute(hConsole, k);
+
+    std::cout << "Input";
+
+    SetConsoleTextAttribute(hConsole, 15);
+
+    std::cout << " " << toinput << ": ";
+
+    std::string input;
+    std::getline(std::cin >> std::ws, input);
+
+    return input;
+
 }

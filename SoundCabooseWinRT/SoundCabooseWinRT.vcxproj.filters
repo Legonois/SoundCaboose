@@ -21,6 +21,9 @@
     <ClInclude Include="cablog.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="cab.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -30,6 +33,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="cablog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cab.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
