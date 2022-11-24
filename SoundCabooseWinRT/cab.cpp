@@ -197,12 +197,12 @@ IAsyncOperation<int> Cab::PlayFileOut(std::string input)
         system("pause");
 
         //Close All Nodes
+        //audioOutputNode.Close();
+        //cablog::info("Closed audioOutputNode");
+        //fileNode.Close();
+        //cablog::info("Closed fileNode");
         audiograph.Close();
         cablog::info("Closed AudioGraph");
-        audioOutputNode.Close();
-        cablog::info("Closed audioOutputNode");
-        fileNode.Close();
-        cablog::info("Closed fileNode");    
 
 
 
