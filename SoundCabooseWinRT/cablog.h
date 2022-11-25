@@ -15,5 +15,7 @@ public:
 	void static wait();
 	std::string static input();
 	std::string static input(std::string toinput);
+
+	static std::string* stringSplitter(std::string input);
 };
 

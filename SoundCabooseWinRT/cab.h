@@ -16,9 +16,12 @@ public:
 	static std::string PathParse(std::string input);
 	static std::string ToBackSlash(std::string input);
 	winrt::Windows::Foundation::IAsyncOperation<int> PlayFileOut(std::string input);
+	winrt::Windows::Foundation::IAsyncOperation<int> play2AudioFiles(std::string input, std::string input2);
 	winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Media::Audio::AudioGraph> SetupAudioGraph();
 	winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Storage::StorageFile> getAudioFile(std::string input);
+	
+	
 	~Cab();
 
-
+	static std::string* stringy();
 };

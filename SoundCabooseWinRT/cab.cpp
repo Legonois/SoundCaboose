@@ -30,6 +30,37 @@ Cab::~Cab()
     delete Cab::intcablog;
 }
 
+std::string* Cab::stringy()
+{
+    std::string* color = new std::string[4];
+    color[0] = "Simon";
+    color[1] = "Peter";
+    color[2] = "Dave";
+	color[3] = "John";
+	
+	//std::string color[4] = { "red", "green", "blue", "yellow" };
+
+	return color;
+}
+
+std::string Cab::PathParse(std::string input)
+{
+    size_t pos = 0;
+    std::string token;
+    std::string delimiter = "\\";
+    std::string tempInput = input;
+
+    while ((pos = tempInput.find(delimiter)) != std::string::npos)
+    {
+        token = tempInput.substr(0, pos);
+        tempInput.erase(0, pos + delimiter.length());
+    }
+
+    std::string output = input.substr(0, input.find(tempInput));
+
+    return output;
+}
+
 std::string Cab::FileParse(std::string input)
 {
 	
@@ -101,11 +132,6 @@ std::string Cab::RemoveInvalidChars(std::string input)
     input.erase(std::remove(input.begin(), input.end(), '\''), input.end());
     input.erase(std::remove(input.begin(), input.end(), '\"'), input.end());
 
-
-    
-
-
-
     return input;
 }
 
@@ -114,27 +140,11 @@ std::string Cab::RemoveInvalidChars(std::string input)
     
 //}
 
-std::string Cab::PathParse(std::string input)
-{
-    size_t pos = 0;
-    std::string token;
-    std::string delimiter = "\\";
-    std::string tempInput = input;
 
-    while ((pos = tempInput.find(delimiter)) != std::string::npos)
-    {
-        token = tempInput.substr(0, pos);
-        tempInput.erase(0, pos + delimiter.length());
-    }
-
-    std::string output = input.substr(0, input.find(tempInput));
-
-    return output;
-}
 
 winrt::Windows::Foundation::IAsyncOperation<AudioGraph> Cab::SetupAudioGraph()
 {
-
+    
 	//// Creates the audio graph settings
 	//AudioGraphSettings settings(AudioRenderCategory::Media);
 	//AudioGraphSettings settings = new AudioGraphSettings(winrt::Windows::Media::Render::AudioRenderCategory::Media);
@@ -144,7 +154,7 @@ winrt::Windows::Foundation::IAsyncOperation<AudioGraph> Cab::SetupAudioGraph()
 	////TODO: Fix 
 	//Sets frequency of audio graph
 	settings.QuantumSizeSelectionMode(winrt::Windows::Media::Audio::QuantumSizeSelectionMode::LowestLatency);
-	settings.EncodingProperties(AudioEncodingProperties::CreatePcm(4100, 1, 16));
+	settings.EncodingProperties(AudioEncodingProperties::CreatePcm(44100, 1, 16));
 	cablog::created("Settings");
 
 	//TODO: Fix Unknown Error
@@ -157,7 +167,7 @@ winrt::Windows::Foundation::IAsyncOperation<AudioGraph> Cab::SetupAudioGraph()
 	CreateAudioGraphResult result = co_await AudioGraph::CreateAsync(settings);
 
 	if (result.Status() == AudioGraphCreationStatus::Success) {
-		cablog::created("AudioGraphResult 'result'");
+        cablog::created("AudioGraph 'audiograph'");
 	}
 	else if (result.Status() == AudioGraphCreationStatus::FormatNotSupported) {
 		cablog::error("Format Not Supported");
@@ -215,7 +225,7 @@ IAsyncOperation<int> Cab::PlayFileOut(std::string input)
         //CreateAudioGraphResult final2 = co_await AudioGraph::CreateAsync(settings); //.get;     //.wait_for(30);
         
         AudioGraph audiograph = co_await SetupAudioGraph();
-        cablog::created("AudioGraph 'audiograph'");
+        
 
         //Importing File
 
@@ -281,4 +291,76 @@ IAsyncOperation<int> Cab::PlayFileOut(std::string input)
     cablog::job("Ended 'PlayFileOut'", input);
 
     co_return 1;
+}
+
+IAsyncOperation<int> Cab::play2AudioFiles(std::string input, std::string input2)
+{
+	input = ToBackSlash(input);
+    input2 = ToBackSlash(input2);
+	cablog::job("Started 'play2AudioFiles'", input);
+	
+    try {
+        AudioGraph audiograph = co_await SetupAudioGraph();
+		
+		auto audioFile = co_await getAudioFile(input);
+		auto audioFile2 = co_await getAudioFile(input2);
+		
+		//FileNode
+		CreateAudioFileInputNodeResult fileNodeResult{ co_await audiograph.CreateFileInputNodeAsync(audioFile) };
+		cablog::created("CreateAudioFileInputNodeResult 'fileNodeResult'");
+		AudioFileInputNode fileNode = fileNodeResult.FileInputNode();
+		
+		//FileNode2
+		CreateAudioFileInputNodeResult fileNodeResult2{ co_await audiograph.CreateFileInputNodeAsync(audioFile2) };
+		cablog::created("CreateAudioFileInputNodeResult 'fileNodeResult2'");
+		AudioFileInputNode fileNode2 = fileNodeResult2.FileInputNode();
+		
+		//OutputNode
+		CreateAudioDeviceOutputNodeResult outputNodeResult{ co_await audiograph.CreateDeviceOutputNodeAsync() };
+		cablog::created("CreateAudioDeviceOutputNodeResult 'outputNodeResult'");
+		AudioDeviceOutputNode audioOutputNode{ outputNodeResult.DeviceOutputNode() };
+		cablog::created("AudioDeviceOutputNode 'audioOutputNode'");
+		
+		//Creating connections
+		fileNode.AddOutgoingConnection(audioOutputNode);
+		fileNode2.AddOutgoingConnection(audioOutputNode);
+		
+		//Starting all nodes
+		fileNode.Start();
+		fileNode2.Start();
+		audioOutputNode.Start();
+		audiograph.Start();
+		cablog::info("Started all nodes");
+		
+		system("pause");
+		
+		//Stops all nodes
+		audiograph.Stop();
+		audioOutputNode.Stop();
+		fileNode.Stop();
+		fileNode2.Stop();
+		
+		cablog::info("Stopped all nodes");
+		
+		system("pause");
+		
+		//Close All Nodes
+        audiograph.Close();
+		
+    }
+	catch (winrt::hresult_error const& ex)
+	{
+		hstring message = ex.message();
+		cablog::error("WinRT/C++: " + to_string(message));
+	}
+	catch (std::exception const& ex)
+	{
+		cablog::error("C++: " + std::string(ex.what()));
+	}
+	catch (...)
+	{
+		cablog::error("Unknown Error");
+	}
+	
+	co_return 1;
 }

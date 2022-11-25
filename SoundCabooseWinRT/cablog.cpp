@@ -90,3 +90,33 @@ std::string cablog::input(std::string toinput)
     return input;
 
 }
+
+std::string* cablog::stringSplitter(std::string input)
+{
+	//Parce strings to array of strings
+	std::string* output = new std::string[100];
+	int i = 0;
+	std::string temp = "";
+	for (int j = 0; j < input.length(); j++)
+	{
+        if (i >= 100)
+        {
+			error("Input has too many commands!");
+			break;
+        }
+
+		if (input[j] == ' ')
+		{
+			output[i] = temp;
+			temp = "";
+			i++;
+		}
+		else
+		{
+			temp += input[j];
+		}
+	}
+	
+	output[i] = temp;
+	return output;
+}
