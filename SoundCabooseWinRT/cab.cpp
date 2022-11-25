@@ -179,8 +179,10 @@ IAsyncOperation<int> Cab::PlayFileOut(std::string input)
         AudioDeviceOutputNode audioOutputNode{ outputNodeResult.DeviceOutputNode() };
         cablog::created("AudioDeviceOutputNode 'audioOutputNode'");;
 
-        //Starting all nodes
+        //Creating connections
+        fileNode.AddOutgoingConnection(audioOutputNode);
 
+        //Starting all nodes
         fileNode.Start();
         audioOutputNode.Start();
         audiograph.Start();
