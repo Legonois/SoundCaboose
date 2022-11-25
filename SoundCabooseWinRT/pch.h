@@ -83,10 +83,13 @@
 #include "winrt/Windows.Media.Capture.h"
 #include "winrt/Windows.Media.Audio.h"
 #include "winrt/Windows.Media.Render.h"
+#include "winrt/Windows.Media.Core.h"
 #include "winrt/Windows.Media.MediaProperties.h"
 #include "winrt/Windows.Media.Devices.Core.h"
 #include "winrt/Windows.Storage.h"
 #include "winrt/Windows.Storage.Search.h"
+#include "winrt/Windows.Storage.Streams.h"
+#include "winrt/Windows.Devices.Enumeration.h"
 
 //#include <Windows.h>
 

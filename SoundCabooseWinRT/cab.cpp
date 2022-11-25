@@ -132,6 +132,75 @@ std::string Cab::PathParse(std::string input)
     return output;
 }
 
+winrt::Windows::Foundation::IAsyncOperation<AudioGraph> Cab::SetupAudioGraph()
+{
+
+	//// Creates the audio graph settings
+	//AudioGraphSettings settings(AudioRenderCategory::Media);
+	//AudioGraphSettings settings = new AudioGraphSettings(winrt::Windows::Media::Render::AudioRenderCategory::Media);
+	AudioGraphSettings settings(AudioRenderCategory::Media);
+	//settings.QuantumSizeSelectionMode(QuantumSizeSelectionMode::LowestLatency);
+
+	////TODO: Fix 
+	//Sets frequency of audio graph
+	settings.QuantumSizeSelectionMode(winrt::Windows::Media::Audio::QuantumSizeSelectionMode::LowestLatency);
+	settings.EncodingProperties(AudioEncodingProperties::CreatePcm(4100, 1, 16));
+	cablog::created("Settings");
+
+	//TODO: Fix Unknown Error
+	////Sets the audio graph to use the default audio device
+	//winrt::hstring defaultdevice = winrt::Windows::Media::Devices::MediaDevice::GetDefaultAudioCaptureId(winrt::Windows::Media::Devices::AudioDeviceRole::Default);
+	//winrt::Windows::Devices::Enumeration::DeviceInformation devinfo = winrt::Windows::Devices::Enumeration::DeviceInformation::CreateFromIdAsync(defaultdevice).get();
+	//settings.PrimaryRenderDevice(devinfo);
+
+	//Creates the audio graph
+	CreateAudioGraphResult result = co_await AudioGraph::CreateAsync(settings);
+
+	if (result.Status() == AudioGraphCreationStatus::Success) {
+		cablog::created("AudioGraphResult 'result'");
+	}
+	else if (result.Status() == AudioGraphCreationStatus::FormatNotSupported) {
+		cablog::error("Format Not Supported");
+	}
+	else if (result.Status() == AudioGraphCreationStatus::DeviceNotAvailable) {
+		cablog::error("Device Not Available");
+	}
+	else if (result.Status() == AudioGraphCreationStatus::UnknownFailure) {
+		cablog::error("Unknown Failure");
+	}
+
+	AudioGraph agfinal = result.Graph();
+
+	//if (agfinal == std::null) {
+	//    throw "AHHHH";
+	//}
+
+	co_return agfinal;
+}
+
+IAsyncOperation<winrt::Windows::Storage::StorageFile> Cab::getAudioFile(std::string input) {
+    hstring folderPath = to_hstring(Cab::PathParse(input));
+    cablog::job("Importing Folder", to_string(folderPath));
+
+
+    winrt::Windows::Storage::StorageFolder storageFolder{ co_await winrt::Windows::Storage::StorageFolder::GetFolderFromPathAsync(folderPath) };
+
+    //auto storageFolder{ co_await StorageFolder::GetFolderFromPathAsync(folderPath) };
+    cablog::job("Imported Folder", to_string(folderPath));
+
+    //Importing File
+    hstring relFilePath = to_hstring(FileParse(input));
+    cablog::job("Importing File", to_string(relFilePath));
+
+
+
+    auto audioFile{ co_await storageFolder.GetFileAsync(relFilePath) };
+    cablog::job("Imported File", to_string(relFilePath));
+
+
+    co_return audioFile;
+}
+
 IAsyncOperation<int> Cab::PlayFileOut(std::string input)
 {
     input = ToBackSlash(input);
@@ -139,33 +208,18 @@ IAsyncOperation<int> Cab::PlayFileOut(std::string input)
     cablog::job("Started 'PlayFileOut'", input);
     try
     {
-        //Setting up Audio Graph
-        //Might want to condense into it's own function
-        AudioGraphSettings settings = AudioGraphSettings(winrt::Windows::Media::Render::AudioRenderCategory::Media);
-        cablog::created("Settings");
-        CreateAudioGraphResult final2 = co_await AudioGraph::CreateAsync(settings); //.get;     //.wait_for(30);
-        cablog::created("AudioGraphResult 'final2'");
-        AudioGraph audiograph = final2.Graph();
+        ////Setting up Audio Graph
+        ////Might want to condense into it's own function
+        //AudioGraphSettings settings = AudioGraphSettings(winrt::Windows::Media::Render::AudioRenderCategory::Media);
+        //
+        //CreateAudioGraphResult final2 = co_await AudioGraph::CreateAsync(settings); //.get;     //.wait_for(30);
+        
+        AudioGraph audiograph = co_await SetupAudioGraph();
         cablog::created("AudioGraph 'audiograph'");
 
-        //Importing Folder
-        hstring folderPath = to_hstring(Cab::PathParse(input));
-        cablog::job("Importing Folder", to_string(folderPath));
-
-
-        winrt::Windows::Storage::StorageFolder storageFolder{ co_await winrt::Windows::Storage::StorageFolder::GetFolderFromPathAsync(folderPath) };
-
-        //auto storageFolder{ co_await StorageFolder::GetFolderFromPathAsync(folderPath) };
-        cablog::job("Imported Folder", to_string(folderPath));
-
         //Importing File
-        hstring relFilePath = to_hstring(FileParse(input));
-        cablog::job("Importing File", to_string(relFilePath));
 
-		
-
-        auto audioFile{ co_await storageFolder.GetFileAsync(relFilePath)};
-        cablog::job("Imported File", to_string(relFilePath));
+        auto audioFile = co_await getAudioFile(input);
 
         //FileNode
         CreateAudioFileInputNodeResult fileNodeResult{ co_await audiograph.CreateFileInputNodeAsync(audioFile) };
@@ -190,7 +244,7 @@ IAsyncOperation<int> Cab::PlayFileOut(std::string input)
 
         system("pause");
 
-        //stop
+        //Stops all nodes
         audiograph.Stop();
         audioOutputNode.Stop();
         fileNode.Stop();
@@ -214,6 +268,15 @@ IAsyncOperation<int> Cab::PlayFileOut(std::string input)
         hstring message = ex.message();
         cablog::error("WinRT/C++: " + to_string(message));
     }
+	catch (std::exception const& ex)
+	{
+		cablog::error("C++: " + std::string(ex.what()));
+	}
+	catch (...)
+	{
+		cablog::error("Unknown Error");
+	}
+	
 
     cablog::job("Ended 'PlayFileOut'", input);
 

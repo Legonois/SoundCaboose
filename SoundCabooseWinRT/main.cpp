@@ -18,11 +18,12 @@ using namespace winrt::Windows::Media::MediaProperties;
 
 IAsyncOperation<int> MainAsync()
 {
+    Cab* intcab = new Cab();
+	
+    co_await intcab->PlayFileOut(cablog::input("filepath for an audiofile"));
     
-
-    co_await Cab::PlayFileOut(cablog::input("filepath for an audiofile"));
-    
-    
+    delete intcab;
+	
     co_return 1;
 }
 
@@ -32,14 +33,14 @@ int main()
     init_apartment();
 
     //Initalize "Caboose Audio Backend"
-    Cab* intcab = new Cab();
+    
 
     /*Uri uri(L"http://aka.ms/cppwinrt");
     printf("Hello, %ls!\n", uri.AbsoluteUri().c_str());*/
 
     MainAsync().get();
 
-    delete intcab;
+    
 
 
     //cablog::cablog();

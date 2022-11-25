@@ -1,5 +1,5 @@
 #pragma once
-static class cablog
+class cablog
 {
 private:
 	static HANDLE hConsole;
