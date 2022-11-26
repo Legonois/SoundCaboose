@@ -144,48 +144,125 @@ std::string Cab::RemoveInvalidChars(std::string input)
 
 winrt::Windows::Foundation::IAsyncOperation<AudioGraph> Cab::SetupAudioGraph()
 {
-    
-	//// Creates the audio graph settings
-	//AudioGraphSettings settings(AudioRenderCategory::Media);
-	//AudioGraphSettings settings = new AudioGraphSettings(winrt::Windows::Media::Render::AudioRenderCategory::Media);
-	AudioGraphSettings settings(AudioRenderCategory::Media);
-	//settings.QuantumSizeSelectionMode(QuantumSizeSelectionMode::LowestLatency);
+	try {
+		AudioGraphSettings settings(AudioRenderCategory::Media);
 
-	////TODO: Fix 
-	//Sets frequency of audio graph
-	settings.QuantumSizeSelectionMode(winrt::Windows::Media::Audio::QuantumSizeSelectionMode::LowestLatency);
-	settings.EncodingProperties(AudioEncodingProperties::CreatePcm(44100, 1, 16));
-	cablog::created("Settings");
+		//Sets frequency of audio graph
+		settings.QuantumSizeSelectionMode(winrt::Windows::Media::Audio::QuantumSizeSelectionMode::LowestLatency);
+		settings.EncodingProperties(AudioEncodingProperties::CreatePcm(44100, 1, 16));
+		cablog::created("Settings");
 
-	//TODO: Fix Unknown Error
-	////Sets the audio graph to use the default audio device
-	//winrt::hstring defaultdevice = winrt::Windows::Media::Devices::MediaDevice::GetDefaultAudioCaptureId(winrt::Windows::Media::Devices::AudioDeviceRole::Default);
-	//winrt::Windows::Devices::Enumeration::DeviceInformation devinfo = winrt::Windows::Devices::Enumeration::DeviceInformation::CreateFromIdAsync(defaultdevice).get();
-	//settings.PrimaryRenderDevice(devinfo);
+		//TODO: Fix Unknown Error
+		////Sets the audio graph to use the default audio device
 
-	//Creates the audio graph
-	CreateAudioGraphResult result = co_await AudioGraph::CreateAsync(settings);
+		AudioDeviceRole defaultAudioDeviceRole = winrt::Windows::Media::Devices::AudioDeviceRole::Default;
 
-	if (result.Status() == AudioGraphCreationStatus::Success) {
-        cablog::created("AudioGraph 'audiograph'");
+		Windows::Devices::Enumeration::DeviceClass defaultAudioDeviceClass = winrt::Windows::Devices::Enumeration::DeviceClass::AudioRender;
+		Windows::Devices::Enumeration::DeviceInformationCollection audioRenderers = Windows::Devices::Enumeration::DeviceInformation::FindAllAsync(defaultAudioDeviceClass).get();
+		winrt::Windows::Devices::Enumeration::DeviceInformation firstAudioRender = audioRenderers.GetAt(0);
+		
+
+		//winrt::hstring defaultdevice 
+		//	= winrt::Windows::Media::Devices::MediaDevice::GetDefaultAudioCaptureId(defaultAudioDeviceRole);
+
+		//
+		//winrt::Windows::Devices::Enumeration::DeviceInformation devinfo 
+		//	= winrt::Windows::Devices::Enumeration::DeviceInformation::CreateFromIdAsync(defaultdevice).get();
+
+		settings.PrimaryRenderDevice(firstAudioRender);
+
+		//Creates the audio graph
+		cablog::error("Creating Audio Graph");
+		CreateAudioGraphResult result = co_await AudioGraph::CreateAsync(settings);
+
+		if (result.Status() == AudioGraphCreationStatus::Success) {
+			cablog::created("AudioGraph 'audiograph'");
+		}
+		else if (result.Status() == AudioGraphCreationStatus::FormatNotSupported) {
+			cablog::error("Format Not Supported");
+		}
+		else if (result.Status() == AudioGraphCreationStatus::DeviceNotAvailable) {
+			cablog::error("Device Not Available");
+		}
+		else if (result.Status() == AudioGraphCreationStatus::UnknownFailure) {
+			cablog::error("Unknown Failure");
+		}
+
+		AudioGraph agfinal = result.Graph();
+
+		//if (agfinal == std::null) {
+		//    throw "AHHHH";
+		//}
+
+		co_return agfinal;
 	}
-	else if (result.Status() == AudioGraphCreationStatus::FormatNotSupported) {
-		cablog::error("Format Not Supported");
+	catch (winrt::hresult_error const& ex)
+	{
+		hstring message = ex.message();
+		cablog::error("WinRT/C++: " + to_string(message));
 	}
-	else if (result.Status() == AudioGraphCreationStatus::DeviceNotAvailable) {
-		cablog::error("Device Not Available");
+	catch (std::exception const& ex)
+	{
+		cablog::error("C++: " + std::string(ex.what()));
 	}
-	else if (result.Status() == AudioGraphCreationStatus::UnknownFailure) {
-		cablog::error("Unknown Failure");
+	catch (...)
+	{
+		cablog::error("Unknown Error");
 	}
+	//// Create the audio graph
+	//AudioGraphSettings settings(nullptr);
+	//settings.EncodingProperties(AudioEncodingProperties::CreatePcm(44100, 2, 16));
+	//settings.QuantumSizeSelectionMode(AudioQuantumSizeSelectionMode::LowestLatency);
+	//settings.PrimaryRenderDevice(AudioDeviceRole::Default);
+	//settings.DesiredRenderDeviceAudioProcessing(AudioProcessing::Raw);
 
-	AudioGraph agfinal = result.Graph();
+	//co_await winrt::resume_background();
 
-	//if (agfinal == std::null) {
-	//    throw "AHHHH";
+	//AudioGraph result = co_await AudioGraph::CreateAsync(settings);
+
+	//if (result.Status() != AudioGraphCreationStatus::Success)
+	//{
+	//	// Display an error message
+	//	//rootPage.NotifyUser(L"AudioGraph Creation Error: " + result.Status().ToString(), NotifyType::ErrorMessage);
+	//	//return;
 	//}
 
-	co_return agfinal;
+	//// Create a device output node
+	//CreateAudioDeviceOutputNodeResult deviceOutputNodeResult = co_await result.CreateDeviceOutputNodeAsync();
+
+	//if (deviceOutputNodeResult.Status() != AudioDeviceNodeCreationStatus::Success)
+	//{
+	//	// Display an error message
+	//	//rootPage.NotifyUser(L"Audio Device Output unavailable: " + deviceOutputNodeResult.Status().ToString(), NotifyType::ErrorMessage);
+	//	//return;
+	//}
+
+	//// Create a frame input node
+	//CreateAudioFrameInputNodeResult frameInputNodeResult = co_await result.CreateFrameInputNodeAsync(MediaEncodingProfile::CreateWav(AudioEncodingQuality::High));
+
+	//if (frameInputNodeResult.Status() != AudioFrameInputNodeCreationStatus::Success)
+	//{
+	//	// Display an error message
+	//	//rootPage.NotifyUser(L"Audio Frame Input Node unavailable: " + frameInputNodeResult.Status().ToString(), NotifyType::ErrorMessage);
+	//	//return;
+	//}
+
+	//// Create a frame output node
+	//CreateAudioFrameOutputNodeResult frameOutputNodeResult = co_await result.CreateFrameOutputNodeAsync(MediaEncodingProfile::CreateWav(AudioEncodingQuality::High));
+
+	//if (frameOutputNodeResult.Status() != AudioFrameOutputNodeCreationStatus::Success)
+	//{
+	//	// Display an error message
+	//	//rootPage.NotifyUser(L"Audio Frame Output Node unavailable: " + frameOutputNodeResult.Status().ToString(), NotifyType::ErrorMessage);
+	//	//return;
+	//}
+
+	// Create a file output node
+	//CreateAudioFileOutputNodeResult fileOutputNodeResult = co_await result.CreateFileOutputNodeAsync(StorageFile::GetFileFromPathAsync("C:\\
+    
+	//// Creates the audio graph settings
+	
+	
 }
 
 IAsyncOperation<winrt::Windows::Storage::StorageFile> Cab::getAudioFile(std::string input) {
