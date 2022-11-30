@@ -33,10 +33,10 @@ IAsyncAction TestMain()
 
     std::string inputcommand = cablog::input("Command");
 
-    while (inputcommand != "exit" && inputcommand != "quit" && inputcommand != "q" && inputcommand != "^C")
+    while (inputcommand != "I")
     {
         std::string* commandArray = cablog::stringSplitter(inputcommand);
-		std::string command = commandArray[0];
+		std::string command = intcab->ToLower(commandArray[0]);
 		cablog::info("Command: " + command);
 
 		//if command is playfile
@@ -49,8 +49,36 @@ IAsyncAction TestMain()
 		else if (command == "play2files")
 		{
 			//play2files
+
+			//check if commandarray[1] and commandarray[2] are valid files
 			co_await intcab->play2AudioFiles(commandArray[1], commandArray[2]);
 		}
+        else if (command == "exit")
+        {
+			break;
+		}
+		else if (command == "quit")
+		{
+			break;
+		}
+		else if (command == "q")
+		{
+			break;
+		}
+		else if (command == "^C")
+		{
+			break;
+		}
+		else if (command == "i")
+		{
+			
+			break;
+		}
+		else
+		{
+			cablog::error("Command '" + command + "' not found");
+			cablog::error("Type 'I' for help");
+        }
 
 		
         delete[] commandArray;
@@ -88,7 +116,7 @@ int main()
 	//	cablog::error("Unknown error");
 	//}
 	
-    TestMain();
+    TestMain().get();
 
     //cablog::info("");
     

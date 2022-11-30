@@ -102,11 +102,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="cab.h" />
+    <ClInclude Include="cabcui.h" />
     <ClInclude Include="cablog.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cab.cpp" />
+    <ClCompile Include="cabcui.cpp" />
     <ClCompile Include="cablog.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="pch.cpp">

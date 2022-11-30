@@ -15,6 +15,8 @@ public:
 	static std::string FileParse(std::string input);
 	static std::string PathParse(std::string input);
 	static std::string ToBackSlash(std::string input);
+	static std::string ToLower(std::string input);
+	static bool isAudioFile(std::string input);
 	winrt::Windows::Foundation::IAsyncOperation<int> PlayFileOut(std::string input);
 	winrt::Windows::Foundation::IAsyncOperation<int> play2AudioFiles(std::string input, std::string input2);
 	winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Media::Audio::AudioGraph> SetupAudioGraph();

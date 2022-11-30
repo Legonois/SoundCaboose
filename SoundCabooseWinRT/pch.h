@@ -52,6 +52,7 @@
 #include <Windows.h>
 #include "cab.h"
 #include "cablog.h"
+#include "cabcui.h"
 
 #include "winrt/Windows.Foundation.Collections.h"
 #include "winrt/Windows.Web.Syndication.h"

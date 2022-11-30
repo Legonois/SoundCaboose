@@ -139,7 +139,15 @@ std::string Cab::RemoveInvalidChars(std::string input)
 //{
     
 //}
+//A function that converts the input string to lowercase string
+std::string Cab::ToLower(std::string input)
+{
+	std::string output = input;
 
+	std::transform(output.begin(), output.end(), output.begin(), ::tolower);
+
+	return output;
+}
 
 
 winrt::Windows::Foundation::IAsyncOperation<AudioGraph> Cab::SetupAudioGraph()
@@ -287,6 +295,18 @@ IAsyncOperation<winrt::Windows::Storage::StorageFile> Cab::getAudioFile(std::str
 
     co_return audioFile;
 }
+
+//check if input is a valid audio file
+bool Cab::isAudioFile(std::string input) {
+	std::string ext = FileParse(input);
+	if (ext == ".wav" || ext == ".mp3" || ext == ".wma" || ext == ".aac" || ext == ".flac" || ext == ".ogg" || ext == ".m4a") {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
 
 IAsyncOperation<int> Cab::PlayFileOut(std::string input)
 {
