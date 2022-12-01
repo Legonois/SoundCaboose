@@ -19,17 +19,19 @@ using namespace winrt::Windows::Media::Render;
 using namespace winrt::Windows::Media::MediaProperties;
 
 
-
+//cab class constructor
 Cab::Cab()
 {
     Cab::intcablog = new cablog();
 }
 
+//cab class destructor
 Cab::~Cab()
 {
     delete Cab::intcablog;
 }
 
+//Test Function
 std::string* Cab::stringy()
 {
     std::string* color = new std::string[4];
@@ -461,3 +463,5 @@ IAsyncOperation<int> Cab::play2AudioFiles(std::string input, std::string input2)
 	
 	co_return 1;
 }
+
+//parse json file using winrt

@@ -1,4 +1,4 @@
-#include "cabio.h"
+#include "cabcui.h"
 #include "pch.h"
 
 using namespace winrt;
@@ -26,4 +26,8 @@ cabcui::~cabcui() {
 //cabio class program loop
 IAsyncAction IOCommandLoop() {
 
+
+	cablog::info("Testing info guys!");
+
+	co_return;
 }

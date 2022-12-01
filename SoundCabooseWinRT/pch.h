@@ -91,6 +91,10 @@
 #include "winrt/Windows.Storage.Search.h"
 #include "winrt/Windows.Storage.Streams.h"
 #include "winrt/Windows.Devices.Enumeration.h"
+#include "winrt/Windows.Data.Json.h"
+#include "winrt/Windows.Data.Text.h"
+#include "winrt/Windows.Data.Pdf.h"
+
 
 //#include <Windows.h>
 

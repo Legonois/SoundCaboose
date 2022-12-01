@@ -72,7 +72,19 @@ IAsyncAction TestMain()
 		else if (command == "i")
 		{
 			
-			break;
+			//print valid commands
+			cablog::empt();
+			cablog::info("Valid Commands:");
+			cablog::info("playfile          | Plays Audio file with an <filepath>");
+			cablog::info("play2files        | Plays 2 Audio files  <filepath> <filepath>");
+			cablog::info("                  |");
+			cablog::info("exit              | Exits the program");
+			cablog::info("quit              |");
+			cablog::info("q                 |");
+			cablog::info("^C                |");
+			cablog::empt();
+			cablog::info("i                 | Prints this help message");
+			
 		}
 		else
 		{
