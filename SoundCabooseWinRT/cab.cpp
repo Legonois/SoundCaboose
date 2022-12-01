@@ -289,8 +289,6 @@ IAsyncOperation<winrt::Windows::Storage::StorageFile> Cab::getAudioFile(std::str
     hstring relFilePath = to_hstring(FileParse(input));
     cablog::job("Importing File", to_string(relFilePath));
 
-
-
     auto audioFile{ co_await storageFolder.GetFileAsync(relFilePath) };
     cablog::job("Imported File", to_string(relFilePath));
 

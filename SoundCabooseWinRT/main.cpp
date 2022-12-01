@@ -30,6 +30,7 @@ IAsyncOperation<int> MainAsync()
 IAsyncAction TestMain()
 {
     Cab* intcab = new Cab();
+	cabcui* intcabcui = new cabcui();
 
     std::string inputcommand = cablog::input("Command");
 
@@ -52,6 +53,14 @@ IAsyncAction TestMain()
 
 			//check if commandarray[1] and commandarray[2] are valid files
 			co_await intcab->play2AudioFiles(commandArray[1], commandArray[2]);
+		}
+		else if (command == "json")
+		{
+			auto jsonOBJ = co_await intcabcui->getjson(commandArray[1]);
+			
+			hstring printout = jsonOBJ.GetNamedString(L"Name");
+			
+			cablog::info("Name: " + winrt::to_string(printout));
 		}
         else if (command == "exit")
         {
@@ -97,6 +106,9 @@ IAsyncAction TestMain()
 			
         inputcommand = cablog::input("Command");
     }
+	
+	intcabcui->~cabcui();
+	delete intcabcui;
     
     delete intcab;
 

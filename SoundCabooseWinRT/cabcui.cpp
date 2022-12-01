@@ -31,3 +31,15 @@ IAsyncAction IOCommandLoop() {
 
 	co_return;
 }
+
+IAsyncOperation<winrt::Windows::Data::Json::JsonObject> cabcui::getjson(std::string input)
+{	
+	Windows::Storage::StorageFile file = co_await Cab::getAudioFile(input);
+	Windows::Storage::Streams::IBuffer buffer{ co_await Windows::Storage::FileIO::ReadBufferAsync(file) };
+	
+	Windows::Storage::Streams::DataReader jsonReader{ Windows::Storage::Streams::DataReader::FromBuffer(buffer) };
+	winrt::hstring jsonFileText{ jsonReader.ReadString(buffer.Length()) };
+
+	winrt::Windows::Data::Json::JsonObject json = winrt::Windows::Data::Json::JsonObject::Parse(jsonFileText);
+	co_return json;
+}

@@ -59,6 +59,7 @@ void cablog::job(std::string job, std::string input)
     info(job + " with input: " + "'" + input + "'");
     //started audiograph with input: 'C:/your mother'
 }
+
 void cablog::created(std::string input)
 {
     info("... Created " + input);
