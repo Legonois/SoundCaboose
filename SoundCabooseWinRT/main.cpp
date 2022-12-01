@@ -58,7 +58,7 @@ IAsyncAction TestMain()
 		{
 			auto jsonOBJ = co_await intcabcui->getjson(commandArray[1]);
 			
-			hstring printout = jsonOBJ.GetNamedString(L"Name");
+			hstring printout = jsonOBJ.GetNamedString(L"second_name");
 			
 			cablog::info("Name: " + winrt::to_string(printout));
 		}

@@ -34,12 +34,39 @@ IAsyncAction IOCommandLoop() {
 
 IAsyncOperation<winrt::Windows::Data::Json::JsonObject> cabcui::getjson(std::string input)
 {	
+	try {
+	input = Cab::ToBackSlash(input);
 	Windows::Storage::StorageFile file = co_await Cab::getAudioFile(input);
 	Windows::Storage::Streams::IBuffer buffer{ co_await Windows::Storage::FileIO::ReadBufferAsync(file) };
 	
 	Windows::Storage::Streams::DataReader jsonReader{ Windows::Storage::Streams::DataReader::FromBuffer(buffer) };
 	winrt::hstring jsonFileText{ jsonReader.ReadString(buffer.Length()) };
+	cablog::info("String Read!");
 
-	winrt::Windows::Data::Json::JsonObject json = winrt::Windows::Data::Json::JsonObject::Parse(jsonFileText);
+	cablog::info("\n" + to_string(jsonFileText));
+
+	winrt::Windows::Data::Json::JsonObject json;
+	bool validJSON = winrt::Windows::Data::Json::JsonObject::TryParse(jsonFileText, json);
+	if (validJSON == false)
+	{
+		cablog::error("Json file is not valid!");
+	}
+
 	co_return json;
+	}
+	catch (winrt::hresult_error const& ex)
+	{
+		hstring message = ex.message();
+		cablog::error("WinRT/C++: " + to_string(message));
+	}
+	catch (std::exception const& ex)
+	{
+		cablog::error("C++: " + std::string(ex.what()));
+	}
+	catch (...)
+	{
+		cablog::error("Unknown Error");
+	}
+
+
 }
