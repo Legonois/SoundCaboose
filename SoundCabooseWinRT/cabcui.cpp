@@ -35,24 +35,31 @@ IAsyncAction IOCommandLoop() {
 IAsyncOperation<winrt::Windows::Data::Json::JsonObject> cabcui::getjson(std::string input)
 {	
 	try {
+	//converts to valid filepath
 	input = Cab::ToBackSlash(input);
+	//returns file object
 	Windows::Storage::StorageFile file = co_await Cab::getAudioFile(input);
+	//returns file into buffer
 	Windows::Storage::Streams::IBuffer buffer{ co_await Windows::Storage::FileIO::ReadBufferAsync(file) };
-	
+	//reads buffer into string
 	Windows::Storage::Streams::DataReader jsonReader{ Windows::Storage::Streams::DataReader::FromBuffer(buffer) };
+	//reads string into JSON Object
 	winrt::hstring jsonFileText{ jsonReader.ReadString(buffer.Length()) };
 	cablog::info("String Read!");
 
+	//testing the input
 	cablog::info("\n" + to_string(jsonFileText));
 
+	//checking if JSON file is valid
 	winrt::Windows::Data::Json::JsonObject json;
 	bool validJSON = winrt::Windows::Data::Json::JsonObject::TryParse(jsonFileText, json);
 	if (validJSON == false)
 	{
 		cablog::error("Json file is not valid!");
 	}
-
+	//returns JSON object
 	co_return json;
+	
 	}
 	catch (winrt::hresult_error const& ex)
 	{

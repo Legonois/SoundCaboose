@@ -58,9 +58,17 @@ IAsyncAction TestMain()
 		{
 			auto jsonOBJ = co_await intcabcui->getjson(commandArray[1]);
 			
-			hstring printout = jsonOBJ.GetNamedString(L"second_name");
+			hstring printout = jsonOBJ.GetNamedString(to_hstring(commandArray[2]));
 			
 			cablog::info("Name: " + winrt::to_string(printout));
+		}
+		else if (command == "jsoncommand")
+		{
+			auto jsonOBJ = co_await intcabcui->getjson(commandArray[1]);
+			
+			std::string args = to_string(jsonOBJ.GetNamedString(to_hstring("arguments")));
+			
+			co_await intcab->PlayFileOut(args);
 		}
         else if (command == "exit")
         {
