@@ -390,6 +390,20 @@ IAsyncOperation<int> Cab::PlayFileOut(std::string input)
     co_return 1;
 }
 
+//Verify that file exists
+bool Cab::FileExists(std::string input) 
+{
+	input = ToBackSlash(input);
+	
+	std::ifstream file (input);
+	if (file.good()) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
 IAsyncOperation<int> Cab::play2AudioFiles(std::string input, std::string input2)
 {
 	input = ToBackSlash(input);

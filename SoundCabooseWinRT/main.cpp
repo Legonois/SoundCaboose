@@ -70,6 +70,16 @@ IAsyncAction TestMain()
 			
 			co_await intcab->PlayFileOut(args);
 		}
+		else if (command == "file?")
+		{
+			bool hi = Cab::FileExists(commandArray[1]);
+			if (hi) {
+				cablog::info("File exists!");
+			}
+			else {
+				cablog::error("File does not exist!");
+			}
+		}
         else if (command == "exit")
         {
 			break;
