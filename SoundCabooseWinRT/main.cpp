@@ -43,8 +43,17 @@ IAsyncAction TestMain()
 		//if command is playfile
 		if (command == "playfile")
 		{
-			//playfile
-			co_await intcab->PlayFileOut(commandArray[1]);
+			bool fileTest = Cab::FileExists(commandArray[1]);
+			if (fileTest == true)
+			{
+				//PlayFile
+				co_await intcab->PlayFileOut(commandArray[1]);
+			}
+			else
+			{
+				//Dislpays command error
+				cablog::error("File does not exist!");
+			}
 		}
 		//if command is play2files
 		else if (command == "play2files")
