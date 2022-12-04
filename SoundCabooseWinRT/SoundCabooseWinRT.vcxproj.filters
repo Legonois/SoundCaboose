@@ -30,6 +30,9 @@
     <ClInclude Include="machine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CabooseProject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -45,6 +48,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="cabcui.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CabooseProject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

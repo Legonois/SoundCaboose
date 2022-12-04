@@ -104,6 +104,7 @@
     <ClInclude Include="cab.h" />
     <ClInclude Include="cabcui.h" />
     <ClInclude Include="cablog.h" />
+    <ClInclude Include="CabooseProject.h" />
     <ClInclude Include="machine.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
@@ -111,6 +112,7 @@
     <ClCompile Include="cab.cpp" />
     <ClCompile Include="cabcui.cpp" />
     <ClCompile Include="cablog.cpp" />
+    <ClCompile Include="CabooseProject.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>

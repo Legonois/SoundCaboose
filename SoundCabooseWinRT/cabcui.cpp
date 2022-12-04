@@ -50,7 +50,7 @@ IAsyncOperation<winrt::Windows::Data::Json::JsonObject> cabcui::getjson(std::str
 	//testing the input
 	cablog::info("\n" + to_string(jsonFileText));
 
-	//checking if JSON file is valid
+	//Checking if JSON file is valid
 	winrt::Windows::Data::Json::JsonObject json;
 	bool validJSON = winrt::Windows::Data::Json::JsonObject::TryParse(jsonFileText, json);
 	if (validJSON == false)
