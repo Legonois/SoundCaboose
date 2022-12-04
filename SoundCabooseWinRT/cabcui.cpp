@@ -74,6 +74,4 @@ IAsyncOperation<winrt::Windows::Data::Json::JsonObject> cabcui::getjson(std::str
 	{
 		cablog::error("Unknown Error");
 	}
-
-
 }

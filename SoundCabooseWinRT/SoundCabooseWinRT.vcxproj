@@ -104,6 +104,7 @@
     <ClInclude Include="cab.h" />
     <ClInclude Include="cabcui.h" />
     <ClInclude Include="cablog.h" />
+    <ClInclude Include="machine.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
