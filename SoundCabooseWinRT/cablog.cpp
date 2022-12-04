@@ -53,6 +53,11 @@ void cablog::wait()
     info("... Resuming");
     empt();
 }
+//DO NOT USE UNLESS NESSISARY, DOES NOT LOG TO FILE
+void cablog::pure(std::string input)
+{
+	std::cout << input;
+}
 
 void cablog::job(std::string job, std::string input)
 {

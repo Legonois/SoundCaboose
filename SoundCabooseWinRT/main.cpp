@@ -62,7 +62,7 @@ IAsyncAction TestMain()
 		}
 		else if (command == "json")
 		{
-			auto jsonOBJ = co_await intcabcui->getjson(commandArray[1]);
+			auto jsonOBJ = co_await Serialization::getJSONobjfromfilepath(commandArray[1]);
 			
 			hstring printout = jsonOBJ.GetNamedString(to_hstring(commandArray[2]));
 			
@@ -70,7 +70,7 @@ IAsyncAction TestMain()
 		}
 		else if (command == "jsoncommand")
 		{
-			auto jsonOBJ = co_await intcabcui->getjson(commandArray[1]);
+			auto jsonOBJ = co_await Serialization::getJSONobjfromfilepath(commandArray[1]);
 			
 			std::string args = to_string(jsonOBJ.GetNamedString(to_hstring("arguments")));
 			
@@ -142,6 +142,10 @@ IAsyncAction TestMain()
 
 int main()
 {
+#ifdef _DEBUG
+	cablog::pure("||||| DEBUG MODE |||||\n");
+#endif
+	
     init_apartment();
 	
     TestMain().get();

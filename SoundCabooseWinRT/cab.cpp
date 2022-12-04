@@ -137,19 +137,28 @@ std::string Cab::RemoveInvalidChars(std::string input)
     return input;
 }
 
-//std::bool IsInvadChar(char c)
-//{
-    
-//}
-//A function that converts the input string to lowercase string
+//function that converts the input string to lowercase string
 std::string Cab::ToLower(std::string input)
 {
 	std::string output = input;
 
-	std::transform(output.begin(), output.end(), output.begin(), ::tolower);
+	for (int i = 0; i < input.length(); i++)
+	{
+		output[i] = tolower(input[i]);
+	}
 
 	return output;
 }
+ 
+//A function that converts the input string to lowercase string
+//std::string Cab::ToLower(std::string input)
+//{
+//	std::string output = input;
+//
+//	std::transform(output.begin(), output.end(), output.begin(), ::tolower);
+//
+//	return output;
+//}
 
 
 winrt::Windows::Foundation::IAsyncOperation<AudioGraph> Cab::SetupAudioGraph()

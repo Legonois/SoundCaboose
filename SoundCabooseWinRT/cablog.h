@@ -13,6 +13,7 @@ public:
 	void static created(std::string input);
 	void static empt();
 	void static wait();
+	void static pure(std::string input);
 	std::string static input();
 	std::string static input(std::string toinput);
 

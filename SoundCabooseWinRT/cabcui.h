@@ -11,8 +11,5 @@ public:
 	cabcui();
 	//destructor
 	~cabcui();
-
-	static winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Data::Json::JsonObject> getjson(std::string input);
-
 	
 };

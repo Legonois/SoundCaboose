@@ -50,9 +50,7 @@
 #pragma comment(lib, "windowsapp")
 
 #include <Windows.h>
-#include "cab.h"
-#include "cablog.h"
-#include "cabcui.h"
+
 
 #include "winrt/Windows.Foundation.Collections.h"
 #include "winrt/Windows.Web.Syndication.h"
@@ -97,6 +95,10 @@
 #include "winrt/Windows.Data.Pdf.h"
 
 
+#include "cab.h"
+#include "cablog.h"
+#include "cabcui.h"
+#include "machine.h"
 //#include <Windows.h>
 
 //Test inclusion of a Header File
