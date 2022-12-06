@@ -1,5 +1,6 @@
 //Standard way to unserialize bytes
 //https://isocpp.org/wiki/faq/serialization#serialize-binary-format
+//Inline function in header file based on ISO suggestion
 
 #ifdef _WIN32
 #include "pch.h"
