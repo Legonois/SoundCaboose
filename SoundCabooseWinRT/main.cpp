@@ -31,7 +31,7 @@ IAsyncAction TestMain()
 
     std::string inputcommand = cablog::input("Command");
 
-    while (inputcommand != "I")
+    while (inputcommand != "q")
     {
         std::string* commandArray = cablog::stringSplitter(inputcommand);
 		std::string command = intcab->ToLower(commandArray[0]);
@@ -102,7 +102,7 @@ IAsyncAction TestMain()
 		{
 			break;
 		}
-		else if (command == "i")
+		else if (command == "help")
 		{
 			
 			//print valid commands
@@ -111,18 +111,21 @@ IAsyncAction TestMain()
 			cablog::info("playfile          | Plays Audio file with an <filepath>");
 			cablog::info("play2files        | Plays 2 Audio files  <filepath> <filepath>");
 			cablog::info("                  |");
+			cablog::info("json              | Finds field in JSON File <filepath> <field_name>");
+			cablog::info("jsoncommand       | Finds field in JSON File then runs as command <filepath> <field_name>");
+			cablog::info("                  |");
 			cablog::info("exit              | Exits the program");
 			cablog::info("quit              |");
 			cablog::info("q                 |");
 			cablog::info("^C                |");
-			cablog::empt();
-			cablog::info("i                 | Prints this help message");
+			cablog::info("                  |");
+			cablog::info("help              | Prints this help message");
 			
 		}
 		else
 		{
 			cablog::error("Command '" + command + "' not found");
-			cablog::error("Type 'I' for help");
+			cablog::error("Type 'help' for help");
         }
 
 		
